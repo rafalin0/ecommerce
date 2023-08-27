@@ -1,0 +1,78 @@
+.hero-section {
+  position: relative;
+  overflow: hidden;
+  .hero-bg {
+    top: 5rem;
+    min-width: 100vw;
+    min-height: 100vh;
+    background-image: url(https://images.unsplash.com/photo-1633934542430-0905ccb5f050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2050&q=80);
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center center;
+    opacity: 0.95;
+  }
+
+  .announcement-container {
+    width: 30%;
+    padding: 2rem, 3.5rem, 6rem;
+    text-align: left;
+    z-index: 10;
+    position: absolute;
+    bottom: 15%;
+    left: 6%;
+
+    .title {
+      color: #ff8181;
+      font-weight: bold;
+
+      span {
+        position: inherit;
+        font-size: 1.3rem;
+        bottom: 90%;
+        font-family: "Dancing Script", cursive;
+        text-transform: capitalize;
+      }
+
+      h1 {
+        font-size: 2.5rem;
+        text-align: left;
+        margin-top: 0;
+        text-transform: uppercase;
+      }
+    }
+
+    p {
+      font-family: "Poppins", sans-serif;
+      font-size: 1.2rem;
+      color: #3d2f3d;
+    }
+  }
+}
+
+@media (max-width: 1028px) {
+  div.hero-section {
+    position: static;
+    max-height: 95vh;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+
+    div.announcement-container {
+      min-width: 100vw;
+      height: 50%;
+      padding: 5%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      justify-content: flex-start;
+      background-color: rgba($color: #f8f1f4, $alpha: 0.7);
+      left: 0%;
+      bottom: 0%;
+      .title {
+        color: #744d56;
+      }
+    }
+  }
+}

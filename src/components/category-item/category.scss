@@ -1,0 +1,72 @@
+.category-container {
+  min-width: 15rem;
+  height: 40vh;
+  flex: 1 1 auto;
+  // border: 1px solid #efd7e5;
+  border-radius: 0.25rem;
+  margin: 0 7.5px 15px;
+  overflow: hidden;
+  display: grid;
+  grid-template-columns: 1fr;
+  grid-template-rows: 1fr;
+  place-items: center;
+
+  &:hover {
+    cursor: pointer;
+
+    & .category-image {
+      transform: scale(1.1);
+      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+    }
+
+    & .category-text-container {
+      opacity: 0.9;
+      border-radius: 5px;
+      background: rgba(255, 255, 255, 0.7);
+      box-shadow: 0 5px 5px 5px rgba(106, 106, 106, 0.2);
+    }
+  }
+
+  &.large {
+    height: 380px;
+  }
+
+  &:first-child {
+    margin-right: 7.5px;
+  }
+
+  &:last-child {
+    margin-left: 7.5px;
+  }
+
+  .category-image {
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+  }
+
+  .category-text-container {
+    max-width: 30%;
+    text-align: center;
+    height: 90px;
+    padding: 0 25px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    // border: 1px solid #efd7e5;
+    position: absolute;
+
+    h2 {
+      font-weight: light;
+      margin: 0 6px 0;
+      font-size: 2rem;
+      // color: #3d2f3d;
+      color: #ff8181;
+      // color: white;
+      text-transform: uppercase;
+      // font-family: "Dancing Script", cursive;
+    }
+  }
+}
