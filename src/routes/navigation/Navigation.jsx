@@ -1,9 +1,12 @@
 import React, { Fragment, useState, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
+import { PiHeartStraight } from "react-icons/pi";
+import { BsPerson } from "react-icons/bs";
+import { LuSearch } from "react-icons/lu";
+import { LiaShoppingBagSolid } from "react-icons/lia";
 
 import { UserContext } from "../../contexts/UserContext";
-import { ReactComponent as Logo } from "../../assets/Logo.svg";
-import { ReactComponent as Logo2 } from "../../assets/Logo-3.svg";
+import { ReactComponent as Logo } from "../../assets/BIO-Logo.svg";
 
 import { signOutUser } from "../../utils/firebase/firebase";
 
@@ -11,9 +14,6 @@ import "./navigation.scss";
 
 function Navigation() {
   const { currentUser } = useContext(UserContext);
-
-  // changing the logo on mouseover and mouseout
-  const [isMouseOver, setIsMouseOver] = useState(false);
 
   // changing the navbar background on scroll
   const [color, setColor] = useState(false);
@@ -29,45 +29,35 @@ function Navigation() {
   return (
     <div>
       <Fragment>
-        <div
-          onMouseOver={() => {
-            setIsMouseOver(true);
-          }}
-          onMouseOut={() => {
-            setIsMouseOver(false);
-          }}
-          className={color ? "navigation scrolled" : "navigation"}
-        >
+        <div className={color ? "navigation scrolled" : "navigation"}>
           <div className="nav-links-container left">
-            <Link to="/" className="nav-link">
+            <Link to="/catalogue" className="nav-link">
               catalogue
             </Link>
             <Link to="/" className="nav-link">
-              Search
+              <LuSearch />
             </Link>
           </div>
           <div className="nav-links-container">
             <Link className="logo-container" to="/">
-              {isMouseOver || color ? (
-                <Logo className="logo" />
-              ) : (
-                <Logo2 className="logo" />
-              )}
+              <Logo className="logo" />
             </Link>
           </div>
 
           <div className="nav-links-container right">
             <Link className="nav-link" to="/wishlist">
-              Wishlist
+              <PiHeartStraight />
             </Link>
-            <Link className="nav-link">Cart</Link>
+            <Link className="nav-link">
+              <LiaShoppingBagSolid />
+            </Link>
             {currentUser ? (
               <span onClick={signOutUser} className="nav-link">
                 SIGN OUT
               </span>
             ) : (
               <Link className="nav-link" to="/account">
-                Account
+                <BsPerson />
               </Link>
             )}
           </div>

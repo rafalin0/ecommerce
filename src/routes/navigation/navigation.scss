@@ -5,7 +5,7 @@
   justify-content: space-between;
   z-index: 100;
   position: fixed;
-  background-color: rgba(255, 255, 255, 0.5);
+  background-color: rgba(255, 255, 255, 0.4);
 
   &:hover {
     background-color: rgba(255, 255, 255, 1);
@@ -18,8 +18,13 @@
   .logo-container {
     height: 100%;
     padding: 0.5rem;
-    display: block;
+    display: flex;
     margin: auto;
+
+    .logo {
+      align-self: center;
+      margin-bottom: 0.7rem;
+    }
   }
 
   .nav-links-container {
@@ -44,6 +49,10 @@
       cursor: pointer;
       position: relative;
       display: inline-block;
+
+      &.nav-link > * {
+        font-size: 1.5rem;
+      }
 
       &::after {
         content: " ";
