@@ -5,8 +5,10 @@ import {
   createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase";
+
 import Button from "../button/Button";
 import FormInput from "../form-input/FormInput";
+
 import "./sign-in.scss";
 
 const defaultFormFields = {
@@ -32,6 +34,7 @@ function SignIn() {
 
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
+
       resetFormFields();
     } catch (err) {
       if (err.code === "auth/user-not-found") {
@@ -47,8 +50,7 @@ function SignIn() {
 
   const logGoogleUser = async () => {
     try {
-      const { user } = await signInWithGooglePopup();
-      createUserDocumentFromAuth(user);
+      await signInWithGooglePopup();
     } catch (err) {
       console.error(err);
     }

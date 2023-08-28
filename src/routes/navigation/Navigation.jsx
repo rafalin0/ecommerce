@@ -1,10 +1,17 @@
-import React, { Fragment, useState } from "react";
+import React, { Fragment, useState, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
+
+import { UserContext } from "../../contexts/UserContext";
 import { ReactComponent as Logo } from "../../assets/Logo.svg";
 import { ReactComponent as Logo2 } from "../../assets/Logo-3.svg";
+
+import { signOutUser } from "../../utils/firebase/firebase";
+
 import "./navigation.scss";
 
 function Navigation() {
+  const { currentUser } = useContext(UserContext);
+
   // changing the logo on mouseover and mouseout
   const [isMouseOver, setIsMouseOver] = useState(false);
 
@@ -17,7 +24,6 @@ function Navigation() {
       setColor(false);
     }
   };
-
   window.addEventListener("scroll", changeColor);
 
   return (
@@ -54,10 +60,16 @@ function Navigation() {
             <Link className="nav-link" to="/wishlist">
               Wishlist
             </Link>
-            <Link className="nav-link" to="/account">
-              Account
-            </Link>
             <Link className="nav-link">Cart</Link>
+            {currentUser ? (
+              <span onClick={signOutUser} className="nav-link">
+                SIGN OUT
+              </span>
+            ) : (
+              <Link className="nav-link" to="/account">
+                Account
+              </Link>
+            )}
           </div>
         </div>
         <Outlet />
