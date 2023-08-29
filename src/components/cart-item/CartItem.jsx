@@ -1,13 +1,17 @@
 import "./cart-item.scss";
 
 import { RiDeleteBin5Line as RemoveIcon } from "react-icons/ri";
-function CartItem() {
+
+function CartItem({ cartItem }) {
+  const { name, price, quantity, imageURL } = cartItem;
+  const total = quantity * price;
+
   return (
     <div className="cart-item-container">
-      <div className="product-image"></div>
+      <img className="product-image" src={imageURL} alt={`${name}`} />
       <div className="product-desc">
-        <h5 className="name">Product Name</h5>
-        <p className="price">₱ 500</p>
+        <h5 className="name">{name}</h5>
+        <p className="price">₱ {price}</p>
       </div>
       <div className="quantity-selector">
         <button
@@ -20,11 +24,11 @@ function CartItem() {
           <span>&#8722;</span>
         </button>
         <input
+          className="quantity"
           data-min="1"
-          data-max="0"
           type="text"
           name="quantity"
-          value="1"
+          value={quantity}
         />
         <button
           type="button"
@@ -35,7 +39,7 @@ function CartItem() {
           <span>&#43;</span>
         </button>
       </div>
-      <h4 className="total">₱ 9999</h4>
+      <h4 className="total">₱ {total}</h4>
       <RemoveIcon className="remove-icon" />
     </div>
   );

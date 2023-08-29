@@ -1,17 +1,16 @@
-import React, { useContext } from "react";
+import { useContext } from "react";
+import { CgClose as CloseIcon } from "react-icons/cg";
 
 import { CartContext } from "../../contexts/CartContext";
-
-import "./shopping-cart.scss";
 
 import Button from "../button/Button";
 import CartItem from "../cart-item/CartItem";
 
-// import { AiFillCloseCircle } from "react-icons/ai";
-import { CgClose as CloseIcon } from "react-icons/cg";
+import "./shopping-cart.scss";
 
 function ShoppingCart() {
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const { isCartOpen, setIsCartOpen, cartItems, cartCount } =
+    useContext(CartContext);
 
   const toggleIsCartOpen = () => {
     setIsCartOpen(!isCartOpen);
@@ -21,11 +20,13 @@ function ShoppingCart() {
     <div className="cart-modal-container">
       <div className="header">
         <h3>cart</h3>
-        <p>5 items</p>
+        <p>{cartCount} items</p>
         <CloseIcon className="close-icon" onClick={toggleIsCartOpen} />
       </div>
       <div className="cart-items">
-        <CartItem />
+        {cartItems.map((cartItem) => (
+          <CartItem key={cartItem.id} cartItem={cartItem} />
+        ))}
       </div>
 
       <div className="footer">
