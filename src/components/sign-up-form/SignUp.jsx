@@ -103,9 +103,7 @@ function SignUp() {
           value={confirmPassword}
         />
         <div className="buttons-container">
-          <Button type="submit" buttonType="inverted">
-            Sign up
-          </Button>
+          <Button type="submit">Sign up</Button>
         </div>
       </form>
     </div>

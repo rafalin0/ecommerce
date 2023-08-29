@@ -13,7 +13,7 @@ function HeroSection() {
         <div className="body">
           <p>dainty, elegant, timeless</p>
           <p>
-            emphasiz ing women's elegance and independent and confident attitude
+            emphasizing women's elegance and independent and confident attitude
             towards life, integrating women's energy into the design concept,
             complemented by the craftsmen's exquisite craftsmanship, to achieve
             each piece of exquisite jewelry.

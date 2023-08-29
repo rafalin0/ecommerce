@@ -2,7 +2,6 @@ import { useState } from "react";
 
 import {
   signInWithGooglePopup,
-  createUserDocumentFromAuth,
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase";
 
@@ -83,9 +82,7 @@ function SignIn() {
         />
 
         <div className="buttons-container">
-          <Button type="submit" buttonType="inverted">
-            Sign in
-          </Button>
+          <Button type="submit">Sign in</Button>
           <Button type="button" buttonType="google" onClick={logGoogleUser}>
             Sign in with Google
           </Button>

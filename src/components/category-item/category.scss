@@ -15,16 +15,15 @@
     cursor: pointer;
 
     & .category-image {
-      transform: scale(1.1);
-      transition: transform 6s cubic-bezier(0.25, 0.45, 0.45, 0.95);
+      filter: blur(1px) brightness(85%);
     }
 
-    & .category-text-container {
-      opacity: 0.9;
-      border-radius: 5px;
-      background: rgba(255, 255, 255, 0.7);
-      box-shadow: 0 5px 5px 5px rgba(106, 106, 106, 0.2);
-    }
+    // & .category-text-container {
+    //   opacity: 0.9;
+    //   border-radius: 5px;
+    //   background: rgba(255, 255, 255, 0.7);
+    //   box-shadow: 0 5px 5px 5px rgba(106, 106, 106, 0.2);
+    // }
   }
 
   &.large {

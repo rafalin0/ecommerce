@@ -1,4 +1,7 @@
 import React, { useState } from "react";
+
+import Button from "../button/Button";
+
 import "./category.scss";
 
 function Category(props) {
@@ -22,7 +25,7 @@ function Category(props) {
         }}
       />
       <div className="category-text-container">
-        {isMouseOver ? <p>shop now</p> : <h2>{title}</h2>}
+        {isMouseOver ? <Button>shop now</Button> : <h2>{title}</h2>}
       </div>
     </div>
   );
