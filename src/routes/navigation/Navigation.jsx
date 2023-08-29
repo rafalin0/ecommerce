@@ -1,19 +1,23 @@
 import React, { Fragment, useState, useContext } from "react";
 import { Outlet, Link } from "react-router-dom";
-import { PiHeartStraight } from "react-icons/pi";
-import { BsPerson } from "react-icons/bs";
-import { LuSearch } from "react-icons/lu";
-import { LiaShoppingBagSolid } from "react-icons/lia";
+
+import { PiHeartStraight as WishlistIcon } from "react-icons/pi";
+import { BsPerson as AccountIcon } from "react-icons/bs";
+import { LuSearch as SearchIcon } from "react-icons/lu";
 
 import { UserContext } from "../../contexts/UserContext";
-import { ReactComponent as Logo } from "../../assets/BIO-Logo.svg";
-
+import { CartContext } from "../../contexts/CartContext";
 import { signOutUser } from "../../utils/firebase/firebase";
+
+import { ReactComponent as Logo } from "../../assets/BIO-Logo.svg";
+import CartIcon from "../../components/cart-icon/CartIcon";
+import ShoppingCart from "../../components/shopping-cart/ShoppingCart";
 
 import "./navigation.scss";
 
 function Navigation() {
   const { currentUser } = useContext(UserContext);
+  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
 
   // changing the navbar background on scroll
   const [color, setColor] = useState(false);
@@ -26,6 +30,10 @@ function Navigation() {
   };
   window.addEventListener("scroll", changeColor);
 
+  const toggleIsCartOpen = () => {
+    setIsCartOpen(!isCartOpen);
+  };
+
   return (
     <div>
       <Fragment>
@@ -35,7 +43,7 @@ function Navigation() {
               catalogue
             </Link>
             <Link to="/" className="nav-link">
-              <LuSearch />
+              <SearchIcon />
             </Link>
           </div>
           <div className="nav-links-container">
@@ -46,10 +54,10 @@ function Navigation() {
 
           <div className="nav-links-container right">
             <Link className="nav-link" to="/wishlist">
-              <PiHeartStraight />
+              <WishlistIcon />
             </Link>
-            <Link className="nav-link">
-              <LiaShoppingBagSolid />
+            <Link className="nav-link" onClick={toggleIsCartOpen}>
+              <CartIcon />
             </Link>
             {currentUser ? (
               <span onClick={signOutUser} className="nav-link">
@@ -57,10 +65,11 @@ function Navigation() {
               </span>
             ) : (
               <Link className="nav-link" to="/account">
-                <BsPerson />
+                <AccountIcon />
               </Link>
             )}
           </div>
+          {isCartOpen && <ShoppingCart />}
         </div>
         <Outlet />
       </Fragment>
