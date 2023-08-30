@@ -72,7 +72,8 @@
         border-top-right-radius: 0.25rem;
         border-bottom-right-radius: 0.25rem;
       }
-      &:disabled {
+      &:disabled,
+      &[disabled] {
         color: #e6d6dd;
       }
     }
@@ -101,5 +102,7 @@
     grid-column-end: 4;
     align-self: start;
     justify-self: end;
+    cursor: pointer;
+    color: #393939;
   }
 }

@@ -9,7 +9,7 @@ import CartItem from "../cart-item/CartItem";
 import "./shopping-cart.scss";
 
 function ShoppingCart() {
-  const { isCartOpen, setIsCartOpen, cartItems, cartCount } =
+  const { isCartOpen, setIsCartOpen, cartItems, cartCount, cartTotal } =
     useContext(CartContext);
 
   const toggleIsCartOpen = () => {
@@ -24,18 +24,22 @@ function ShoppingCart() {
         <CloseIcon className="close-icon" onClick={toggleIsCartOpen} />
       </div>
       <div className="cart-items">
-        {cartItems.map((cartItem) => (
-          <CartItem key={cartItem.id} cartItem={cartItem} />
-        ))}
+        {cartItems.length ? (
+          cartItems.map((cartItem) => (
+            <CartItem key={cartItem.id} cartItem={cartItem} />
+          ))
+        ) : (
+          <p className="empty-cart">Your shopping bag is empty.</p>
+        )}
       </div>
 
       <div className="footer">
         <div className="total">
           <h3>Total</h3>
-          <h3>₱ XXXX</h3>
+          <h3>₱ {cartTotal}</h3>
         </div>
         <p>shipping & discounts calculated at checkout</p>
-        <Button>GO TO CHECKOUT</Button>
+        <Button>PROCEED TO CHECKOUT</Button>
       </div>
     </div>
   );
