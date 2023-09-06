@@ -7,7 +7,7 @@ import "./cart-item.scss";
 import { RiDeleteBin5Line as RemoveIcon } from "react-icons/ri";
 
 function CartItem({ cartItem }) {
-  const { name, price, quantity, imageURL } = cartItem;
+  const { name, price, quantity, imageUrl } = cartItem;
   const total = quantity * price;
 
   const { addItemToCart, removeItemFromCart, clearCartItemFromCart } =
@@ -15,7 +15,7 @@ function CartItem({ cartItem }) {
 
   return (
     <div className="cart-item-container">
-      <img className="product-image" src={imageURL} alt={`${name}`} />
+      <img className="product-image" src={imageUrl} alt={`${name}`} />
       <div className="product-desc">
         <h5 className="name">{name}</h5>
         <p className="price">₱ {price}</p>

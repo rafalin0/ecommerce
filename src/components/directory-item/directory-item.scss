@@ -1,4 +1,4 @@
-.category-container {
+.directory-item-container {
   min-width: 15rem;
   height: 40vh;
   flex: 1 1 auto;
@@ -11,41 +11,14 @@
   grid-template-rows: 1fr;
   place-items: center;
 
-  &:hover {
-    cursor: pointer;
-
-    & .category-image {
-      filter: blur(1px) brightness(85%);
-    }
-
-    // & .category-text-container {
-    //   opacity: 0.9;
-    //   border-radius: 5px;
-    //   background: rgba(255, 255, 255, 0.7);
-    //   box-shadow: 0 5px 5px 5px rgba(106, 106, 106, 0.2);
-    // }
-  }
-
-  &.large {
-    height: 380px;
-  }
-
-  &:first-child {
-    margin-right: 7.5px;
-  }
-
-  &:last-child {
-    margin-left: 7.5px;
-  }
-
-  .category-image {
+  .directory-image {
     width: 100%;
     height: 100%;
     background-size: cover;
     background-position: center;
   }
 
-  .category-text-container {
+  .directory-text-container {
     max-width: 30%;
     text-align: center;
     height: 90px;
@@ -57,15 +30,19 @@
     // border: 1px solid #efd7e5;
     position: absolute;
 
-    h2 {
+    .directory-title {
       font-weight: light;
       margin: 0 6px 0;
       font-size: 2rem;
-      // color: #3d2f3d;
       color: #ff8181;
-      // color: white;
       text-transform: uppercase;
-      // font-family: "Dancing Script", cursive;
+    }
+  }
+  &:hover {
+    cursor: pointer;
+
+    & .directory-image {
+      filter: blur(1px) brightness(85%);
     }
   }
 }

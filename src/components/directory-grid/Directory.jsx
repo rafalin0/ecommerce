@@ -1,5 +1,5 @@
 import React from "react";
-import Category from "../category-item/Category";
+import Category from "../directory-item/DirectoryItem";
 import "./directory.scss";
 
 function Directory({ categories }) {

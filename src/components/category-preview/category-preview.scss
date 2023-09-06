@@ -1,0 +1,39 @@
+.category-title {
+  padding-top: 5vh;
+  text-transform: uppercase;
+  color: #393939;
+}
+
+.category-preview {
+  display: grid;
+  grid-template: 1fr / 1fr 7rem;
+  align-items: center;
+
+  .cp-product-cards-container {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    grid-gap: 10px;
+  }
+
+  .cp-view-more-btn {
+    margin-left: 2rem;
+  }
+}
+
+// for Medium devices (landscape tablets, 768px)
+@media (max-width: 768px) {
+  .category-preview {
+    grid-template: 1fr 5rem / 1fr;
+    padding: 0 2rem;
+    & div.cp-product-cards-container {
+      margin-right: 0;
+      display: grid;
+      grid-template: 1fr 1fr / 1fr 1fr;
+      gap: 10px;
+    }
+    & .cp-view-more-btn {
+      display: flex;
+      justify-content: flex-end;
+    }
+  }
+}

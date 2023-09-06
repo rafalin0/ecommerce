@@ -7,7 +7,7 @@ import "./product-card.scss";
 import Button from "../button/Button";
 
 function ProductCard({ product }) {
-  const { name, imageURL, price } = product;
+  const { name, imageUrl, price } = product;
   const { addItemToCart } = useContext(CartContext);
 
   const addProductToCart = () => {
@@ -19,7 +19,7 @@ function ProductCard({ product }) {
       <div
         className="product-image"
         style={{
-          backgroundImage: `url(${imageURL})`,
+          backgroundImage: `url(${imageUrl})`,
         }}
       ></div>
       <div className="footer">

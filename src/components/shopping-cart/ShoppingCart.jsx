@@ -1,5 +1,6 @@
 import { useContext } from "react";
 import { CgClose as CloseIcon } from "react-icons/cg";
+import { useNavigate } from "react-router-dom";
 
 import { CartContext } from "../../contexts/CartContext";
 
@@ -14,6 +15,12 @@ function ShoppingCart() {
 
   const toggleIsCartOpen = () => {
     setIsCartOpen(!isCartOpen);
+  };
+
+  const navigate = useNavigate();
+
+  const goToCheckoutHandler = () => {
+    navigate("/checkout");
   };
 
   return (
@@ -39,7 +46,9 @@ function ShoppingCart() {
           <h3>₱ {cartTotal}</h3>
         </div>
         <p>shipping & discounts calculated at checkout</p>
-        <Button>PROCEED TO CHECKOUT</Button>
+        <Button type="button" onClick={goToCheckoutHandler}>
+          PROCEED TO CHECKOUT
+        </Button>
       </div>
     </div>
   );

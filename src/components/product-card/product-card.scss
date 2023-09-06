@@ -1,5 +1,6 @@
 .product-card-container {
-  width: 100%;
+  max-width: 385px;
+  max-height: 390px;
   display: flex;
   flex-direction: column;
   height: 50vh;
@@ -7,25 +8,28 @@
   position: relative;
   justify-content: space-evenly;
   background-color: #ffffff;
-
+  border-radius: 5px;
+  box-shadow: 0 4px 4px 4px rgba(99, 76, 99, 0.058);
+  flex-wrap: wrap;
   cursor: pointer;
 
   .product-image {
     width: 100%;
-    height: 80%;
+    height: 85%;
+    background-repeat: no-repeat;
     background-size: cover;
     background-position: bottom;
-    border-radius: 5px 5px 0 0;
+    border-radius: 4px 4px 0 0;
     position: absolute;
     top: 0;
   }
 
   .footer {
-    border: 1px solid silver;
     background-color: #ffffff;
     color: #3d2f3d;
     width: 100%;
-    height: 20%;
+    min-height: 20%;
+    height: auto;
     font-size: 18px;
     padding: 1rem;
     position: absolute;
@@ -38,13 +42,13 @@
     justify-content: space-between;
 
     .name {
-      width: 90%;
+      width: 80%;
       margin-bottom: 15px;
       font-weight: bold;
     }
 
     .price {
-      width: 10%;
+      width: auto;
     }
 
     button {
@@ -65,8 +69,15 @@
     button {
       opacity: 1;
       display: block;
-      align-self: self-end;
       margin: 0 auto;
+      border: 2px solid #3d2f3d;
+      padding: 0;
     }
+  }
+}
+
+@media (max-width: 768px) {
+  .product-card-container {
+    min-width: 193px;
   }
 }
