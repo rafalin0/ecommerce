@@ -1,5 +1,5 @@
 import React, { Fragment, useState, useContext } from "react";
-import { Outlet, Link } from "react-router-dom";
+import { Outlet } from "react-router-dom";
 
 import { PiHeartStraight as WishlistIcon } from "react-icons/pi";
 import { BsPerson as AccountIcon } from "react-icons/bs";
@@ -13,7 +13,12 @@ import { ReactComponent as Logo } from "../../assets/BIO-Logo.svg";
 import CartIcon from "../../components/cart-icon/CartIcon";
 import ShoppingCart from "../../components/shopping-cart/ShoppingCart";
 
-import "./navigation.scss";
+import {
+  NavigationContainer,
+  NavLinks,
+  NavLink,
+  LogoContainer,
+} from "./NavigationStyled.jsx";
 
 function Navigation() {
   const { currentUser } = useContext(UserContext);
@@ -37,40 +42,35 @@ function Navigation() {
   return (
     <div>
       <Fragment>
-        <div className={color ? "navigation scrolled" : "navigation"}>
-          <div className="nav-links-container left">
-            <Link to="/catalogue" className="nav-link">
-              catalogue
-            </Link>
-            <Link to="/" className="nav-link">
+        <NavigationContainer scrolled={color}>
+          <NavLinks>
+            <NavLink to="/catalogue">catalogue</NavLink>
+            <NavLink to="/">
               <SearchIcon />
-            </Link>
-          </div>
-          <div className="nav-links-container">
-            <Link className="logo-container" to="/">
-              <Logo className="logo" />
-            </Link>
-          </div>
+            </NavLink>
 
-          <div className="nav-links-container right">
-            <Link className="nav-link" to="/wishlist">
+            <LogoContainer to="/">
+              <Logo className="logo" />
+            </LogoContainer>
+
+            <NavLink to="/wishlist">
               <WishlistIcon />
-            </Link>
-            <Link className="nav-link" onClick={toggleIsCartOpen}>
+            </NavLink>
+            <NavLink onClick={toggleIsCartOpen}>
               <CartIcon />
-            </Link>
+            </NavLink>
             {currentUser ? (
-              <span onClick={signOutUser} className="nav-link">
+              <NavLink as="span" onClick={signOutUser}>
                 SIGN OUT
-              </span>
+              </NavLink>
             ) : (
-              <Link className="nav-link" to="/account">
+              <NavLink to="/account">
                 <AccountIcon />
-              </Link>
+              </NavLink>
             )}
-          </div>
+          </NavLinks>
           {isCartOpen && <ShoppingCart />}
-        </div>
+        </NavigationContainer>
         <Outlet />
       </Fragment>
     </div>

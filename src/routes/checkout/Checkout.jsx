@@ -4,38 +4,44 @@ import { CartContext } from "../../contexts/CartContext";
 
 import CheckoutItem from "../../components/checkout-item/CheckoutItem";
 
-import "./checkout.scss";
+import {
+  CheckoutContainer,
+  Main,
+  OrderSummary,
+  CheckoutItems,
+  Total,
+} from "./CheckoutStyled.jsx";
 
 function Checkout() {
   const { cartItems, cartTotal } = useContext(CartContext);
 
   return (
-    <div className="checkout-container">
-      <div className="checkout-main">
-        <div className="checkout-items">
+    <CheckoutContainer>
+      <Main>
+        <CheckoutItems>
           {cartItems.map((cartItem) => (
             <CheckoutItem key={cartItem.id} cartItem={cartItem} />
           ))}
-        </div>
-        <div className="total">
+        </CheckoutItems>
+        <Total>
           <h3>Total</h3>
           <h3>₱ {cartTotal}</h3>
-        </div>
-      </div>
+        </Total>
+      </Main>
 
-      <div className="checkout-sidebar">
+      <OrderSummary>
         <h2>Order Summary</h2>
-        <div className="checkout-items">
+        <CheckoutItems>
           {cartItems.map((cartItem) => (
             <CheckoutItem key={cartItem.id} cartItem={cartItem} />
           ))}
-        </div>
-        <div className="cart-total-container">
-          <p className="label">Total</p>
-          <p className="cart-total">₱ {cartTotal}</p>
-        </div>
-      </div>
-    </div>
+        </CheckoutItems>
+        <Total>
+          <p>Total</p>
+          <p>₱ {cartTotal}</p>
+        </Total>
+      </OrderSummary>
+    </CheckoutContainer>
   );
 }
 

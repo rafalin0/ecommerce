@@ -3,7 +3,11 @@ import { useNavigate } from "react-router-dom";
 
 import Button from "../button/Button";
 
-import "./directory-item.scss";
+import {
+  DirectoryItemContainer,
+  BackgroundImage,
+  DirectoryBody,
+} from "./DirectoryItemStyled.jsx";
 
 function DirectoryItem(props) {
   const [isMouseOver, setIsMouseOver] = useState(false);
@@ -15,7 +19,7 @@ function DirectoryItem(props) {
     navigate(`/catalogue/${title.toLowerCase()}`);
   };
   return (
-    <div
+    <DirectoryItemContainer
       onMouseOver={() => {
         setIsMouseOver(true);
       }}
@@ -23,24 +27,18 @@ function DirectoryItem(props) {
         setIsMouseOver(false);
       }}
       key={id}
-      className="directory-item-container"
     >
-      <div
-        className="directory-image"
-        style={{
-          backgroundImage: `url(${imageURL})`,
-        }}
-      />
-      <div className="directory-text-container">
+      <BackgroundImage imageURL={imageURL} />
+      <DirectoryBody>
         {isMouseOver ? (
           <Button type="button" onClick={shopCategoryHandler}>
             shop now
           </Button>
         ) : (
-          <h2 className="directory-title">{title}</h2>
+          <h2>{title}</h2>
         )}
-      </div>
-    </div>
+      </DirectoryBody>
+    </DirectoryItemContainer>
   );
 }
 

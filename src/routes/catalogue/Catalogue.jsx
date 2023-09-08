@@ -1,6 +1,6 @@
 import { Route, Routes } from "react-router-dom";
 
-import CategoriesPreview from "../../components/categories-preview/CategoriesPreview";
+import CategoriesPreview from "../categories-preview/CategoriesPreview";
 import Category from "../category/Category";
 
 function Catalogue() {

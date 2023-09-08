@@ -1,19 +1,22 @@
-import "./checkout-item.scss";
+import {
+  CheckoutItemContainer,
+  CheckoutItemDesc,
+} from "./CheckoutItemStyled.jsx";
 
 function CheckoutItem({ cartItem }) {
-  const { name, price, quantity, imageURL } = cartItem;
+  const { name, price, quantity, imageUrl } = cartItem;
   const total = quantity * price;
   return (
-    <div className="checkout-item-container">
-      <div className="product-desc">
-        <img className="product-image" src={imageURL} alt={`${name}`} />
+    <CheckoutItemContainer>
+      <CheckoutItemDesc>
+        <img className="product-image" src={imageUrl} alt={`${name}`} />
         <span className="product-quantity">{quantity}</span>
         <p className="name">{name}</p>
-      </div>
+      </CheckoutItemDesc>
       <div className="total">
         <p>₱ {total}</p>
       </div>
-    </div>
+    </CheckoutItemContainer>
   );
 }
 

@@ -1,7 +1,8 @@
 import { Fragment } from "react";
+import { Outlet } from "react-router-dom";
+
 import Directory from "../../components/directory-grid/Directory";
 import HeroSection from "../../components/hero-section/HeroSection";
-import "./home.scss";
 
 function Home() {
   const categories = [
@@ -43,6 +44,7 @@ function Home() {
       <div className="home-section">
         <Directory categories={categories} />
       </div>
+      <Outlet />
     </Fragment>
   );
 }

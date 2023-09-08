@@ -5,10 +5,10 @@ import {
   createAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase.js";
 
-import FormInput from "../form-input/FormInput";
-import Button from "../button/Button";
+import FormInput from "../form-input/FormInput.jsx";
+import Button from "../button/Button.jsx";
 
-import "./sign-up.scss";
+import { SignUpContainer } from "./SignUpStyled.jsx";
 
 const defaultFormFields = {
   displayName: "",
@@ -60,7 +60,7 @@ function SignUp() {
   };
 
   return (
-    <div className="sign-up-container">
+    <SignUpContainer>
       <div>
         <h2>I do not have an account</h2>
         <p>Sign up with your email and password</p>
@@ -106,7 +106,7 @@ function SignUp() {
           <Button type="submit">Sign up</Button>
         </div>
       </form>
-    </div>
+    </SignUpContainer>
   );
 }
 

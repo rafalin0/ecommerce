@@ -5,10 +5,10 @@ import {
   signInAuthUserWithEmailAndPassword,
 } from "../../utils/firebase/firebase";
 
-import Button from "../button/Button";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/Button";
 import FormInput from "../form-input/FormInput";
 
-import "./sign-in.scss";
+import { SignInContainer } from "./SignInStyled.jsx";
 
 const defaultFormFields = {
   email: "",
@@ -30,11 +30,10 @@ function SignIn() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    resetFormFields();
 
     try {
       await signInAuthUserWithEmailAndPassword(email, password);
-
-      resetFormFields();
     } catch (err) {
       if (err.code === "auth/user-not-found") {
         alert("Account not found");
@@ -56,7 +55,7 @@ function SignIn() {
   };
 
   return (
-    <div className="sign-in-container">
+    <SignInContainer>
       <div>
         <h2>I already have an account</h2>
         <p>Sign in with your email and password</p>
@@ -83,12 +82,16 @@ function SignIn() {
 
         <div className="buttons-container">
           <Button type="submit">Sign in</Button>
-          <Button type="button" buttonType="google" onClick={logGoogleUser}>
+          <Button
+            type="button"
+            buttonType={BUTTON_TYPE_CLASSES.google}
+            onClick={logGoogleUser}
+          >
             Sign in with Google
           </Button>
         </div>
       </form>
-    </div>
+    </SignInContainer>
   );
 }
 

@@ -5,7 +5,11 @@ import ProductCard from "../../components/product-card/ProductCard";
 
 import { CategoriesContext } from "../../contexts/CategoriesContext";
 
-import "./category.scss";
+import {
+  CategoryPageContainer,
+  CategoryName,
+  CategoryItemsContainer,
+} from "./CategoryStyled.jsx";
 
 function Category() {
   const { category } = useParams();
@@ -16,15 +20,15 @@ function Category() {
     setProducts(categoriesMap[category]);
   }, [category, categoriesMap]);
   return (
-    <div className="category-page-container">
-      <h2 className="category-title">{category}</h2>
-      <div className="category-items-container">
+    <CategoryPageContainer>
+      <CategoryName>{category}</CategoryName>
+      <CategoryItemsContainer>
         {products &&
           products.map((product) => (
             <ProductCard key={product.id} product={product} />
           ))}
-      </div>
-    </div>
+      </CategoryItemsContainer>
+    </CategoryPageContainer>
   );
 }
 

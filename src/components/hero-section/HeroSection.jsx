@@ -1,27 +1,29 @@
 import Button from "../button/Button";
-import "./hero-section.scss";
+import {
+  HeroSectionContainer,
+  AnnouncementContainer,
+} from "./HeroSectionStyled.jsx";
 
 function HeroSection() {
   return (
-    <div className="hero-section">
-      <div className="hero-bg"></div>
-      <div className="announcement-container">
+    <HeroSectionContainer>
+      <AnnouncementContainer>
         <div className="title">
           <span>New Arrival</span>
           <h1>Classic Sets</h1>
         </div>
-        <div className="body">
-          <p>dainty, elegant, timeless</p>
-          <p>
-            emphasizing women's elegance and independent and confident attitude
-            towards life, integrating women's energy into the design concept,
-            complemented by the craftsmen's exquisite craftsmanship, to achieve
-            each piece of exquisite jewelry.
-          </p>
-        </div>
+
+        <p>dainty, elegant, timeless</p>
+        <p>
+          emphasizing women's elegance and independent and confident attitude
+          towards life, integrating women's energy into the design concept,
+          complemented by the craftsmen's exquisite craftsmanship, to achieve
+          each piece of exquisite jewelry.
+        </p>
+
         <Button buttonType="inverted">Shop now</Button>
-      </div>
-    </div>
+      </AnnouncementContainer>
+    </HeroSectionContainer>
   );
 }
 

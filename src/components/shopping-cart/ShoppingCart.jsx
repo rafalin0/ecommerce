@@ -1,5 +1,4 @@
 import { useContext } from "react";
-import { CgClose as CloseIcon } from "react-icons/cg";
 import { useNavigate } from "react-router-dom";
 
 import { CartContext } from "../../contexts/CartContext";
@@ -7,7 +6,14 @@ import { CartContext } from "../../contexts/CartContext";
 import Button from "../button/Button";
 import CartItem from "../cart-item/CartItem";
 
-import "./shopping-cart.scss";
+import {
+  ShoppingCartContainer,
+  CloseIcon,
+  ShoppingCartHeader,
+  EmptyMessage,
+  ShoppingCartFooter,
+  ShoppingCartItems,
+} from "./ShoppingCartStyled.jsx";
 
 function ShoppingCart() {
   const { isCartOpen, setIsCartOpen, cartItems, cartCount, cartTotal } =
@@ -24,33 +30,32 @@ function ShoppingCart() {
   };
 
   return (
-    <div className="cart-modal-container">
-      <div className="header">
+    <ShoppingCartContainer>
+      <ShoppingCartHeader>
         <h3>cart</h3>
         <p>{cartCount} items</p>
         <CloseIcon className="close-icon" onClick={toggleIsCartOpen} />
-      </div>
-      <div className="cart-items">
+      </ShoppingCartHeader>
+      <ShoppingCartItems>
         {cartItems.length ? (
           cartItems.map((cartItem) => (
             <CartItem key={cartItem.id} cartItem={cartItem} />
           ))
         ) : (
-          <p className="empty-cart">Your shopping bag is empty.</p>
+          <EmptyMessage>Your shopping bag is empty.</EmptyMessage>
         )}
-      </div>
+      </ShoppingCartItems>
 
-      <div className="footer">
-        <div className="total">
-          <h3>Total</h3>
-          <h3>₱ {cartTotal}</h3>
-        </div>
+      <ShoppingCartFooter>
+        <h3>Total</h3>
+        <h3>₱ {cartTotal}</h3>
+
         <p>shipping & discounts calculated at checkout</p>
         <Button type="button" onClick={goToCheckoutHandler}>
           PROCEED TO CHECKOUT
         </Button>
-      </div>
-    </div>
+      </ShoppingCartFooter>
+    </ShoppingCartContainer>
   );
 }
 export default ShoppingCart;

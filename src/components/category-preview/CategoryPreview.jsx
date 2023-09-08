@@ -3,29 +3,32 @@ import { Link } from "react-router-dom";
 import ViewMoreButton from "../button/ViewMoreButton";
 import ProductCard from "../product-card/ProductCard";
 
-import "./category-preview.scss";
+import {
+  CategoryPreviewContainer,
+  PreviewContent,
+  ProductCardsContainer,
+  CategoryName,
+} from "./CategoryPreviewStyled.jsx";
 
 function CategoryPreview({ title, products }) {
   return (
-    <>
-      <h2 className="category-title">
-        <Link to={title}>{title.toUpperCase()}</Link>
-      </h2>
-      <div className="category-preview">
-        <div className="cp-product-cards-container">
+    <CategoryPreviewContainer>
+      <CategoryName to={title}>{title}</CategoryName>
+      <PreviewContent>
+        <ProductCardsContainer>
           {products
             .filter((_, idx) => idx < 4)
             .map((product) => (
               <ProductCard key={product.id} product={product} />
             ))}
-        </div>
+        </ProductCardsContainer>
         <div className="cp-view-more-btn">
           <Link to={title}>
             <ViewMoreButton />
           </Link>
         </div>
-      </div>
-    </>
+      </PreviewContent>
+    </CategoryPreviewContainer>
   );
 }
 
