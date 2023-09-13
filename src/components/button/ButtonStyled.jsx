@@ -1,10 +1,10 @@
 import styled from "styled-components";
 
 export const BaseButton = styled.button`
-  cursor: pointer;
   min-width: 8rem;
+  min-height: 3rem;
+  cursor: pointer;
   width: auto;
-  height: 3rem;
   font-size: 0.8rem;
   border: none;
   border-radius: 0.25rem;

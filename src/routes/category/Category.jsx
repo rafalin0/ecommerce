@@ -9,6 +9,7 @@ import {
   CategoryPageContainer,
   CategoryName,
   CategoryItemsContainer,
+  Banner,
 } from "./CategoryStyled.jsx";
 
 function Category() {
@@ -21,7 +22,10 @@ function Category() {
   }, [category, categoriesMap]);
   return (
     <CategoryPageContainer>
-      <CategoryName>{category}</CategoryName>
+      <Banner>
+        <CategoryName>{category}</CategoryName>
+      </Banner>
+
       <CategoryItemsContainer>
         {products &&
           products.map((product) => (

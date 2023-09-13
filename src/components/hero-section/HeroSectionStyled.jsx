@@ -1,34 +1,12 @@
 import styled from "styled-components";
 
-export const HeroSectionContainer = styled.div`
-  position: relative;
-  overflow: hidden;
-  min-width: 100%;
-  min-height: 100vh;
-  background-image: url(https://images.unsplash.com/photo-1633934542430-0905ccb5f050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2050&q=80);
-  background-repeat: no-repeat;
-  background-size: cover;
-  background-position: center center;
-  opacity: 0.95;
-
-  @media (max-width: 1028px) {
-    & {
-      position: static;
-      margin: 0 auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: space-between;
-    }
-  }
-`;
-
 export const AnnouncementContainer = styled.div`
   width: 30%;
   text-align: left;
   z-index: 10;
   position: absolute;
   bottom: 15%;
-  left: 6%;
+  left: 5%;
 
   &:first-child {
     color: #ff8181;
@@ -56,23 +34,47 @@ export const AnnouncementContainer = styled.div`
     color: #3d2f3d;
     font-weight: normal;
   }
+`;
+
+export const HeroSectionContainer = styled.div`
+  position: relative;
+  overflow: hidden;
+  min-width: 100%;
+  min-height: 100vh;
+  background-image: url(https://images.unsplash.com/photo-1633934542430-0905ccb5f050?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=2050&q=80);
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center center;
+  opacity: 0.95;
 
   @media (max-width: 1028px) {
     & {
-      min-width: 100%;
-      height: 50%;
-      padding: 5%;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      text-align: center;
-      justify-content: flex-start;
-      background-color: rgba(248, 241, 244, 0.7);
-      left: 0;
-      bottom: 0;
+      position: static;
+      margin: 0 auto;
 
-      &:first-child {
-        color: #744d56;
+      display: flex;
+      justify-content: center;
+      align-items: flex-end;
+
+      ${AnnouncementContainer} {
+        position: relative;
+        left: 0;
+
+        min-width: 100%;
+        height: 50%;
+        max-height: 100%;
+        padding: 5%;
+        background-color: rgba(248, 241, 244, 0.7);
+
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+        justify-content: space-between;
+
+        &:first-child {
+          color: #744d56;
+        }
       }
     }
   }

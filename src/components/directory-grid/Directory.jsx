@@ -5,8 +5,8 @@ import { DirectoryContainer } from "./DirectoryStyled.jsx";
 function Directory({ categories }) {
   return (
     <DirectoryContainer>
-      {categories.map(({ title, id, imageURL }) => (
-        <DirectoryItem title={title} key={id} imageURL={imageURL} />
+      {categories.map(({ title, id, imageurl }) => (
+        <DirectoryItem title={title} key={id} imageURL={imageurl} />
       ))}
     </DirectoryContainer>
   );

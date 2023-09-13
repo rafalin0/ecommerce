@@ -3,7 +3,7 @@ import { Outlet } from "react-router-dom";
 
 import { PiHeartStraight as WishlistIcon } from "react-icons/pi";
 import { BsPerson as AccountIcon } from "react-icons/bs";
-import { LuSearch as SearchIcon } from "react-icons/lu";
+// import { LuSearch as SearchIcon } from "react-icons/lu";
 
 import { UserContext } from "../../contexts/UserContext";
 import { CartContext } from "../../contexts/CartContext";
@@ -27,10 +27,10 @@ function Navigation() {
   // changing the navbar background on scroll
   const [color, setColor] = useState(false);
   const changeColor = () => {
-    if (window.scrollY >= 80) {
-      setColor(true);
-    } else {
+    if (window.scrollY <= 80) {
       setColor(false);
+    } else {
+      setColor(true);
     }
   };
   window.addEventListener("scroll", changeColor);
@@ -45,9 +45,9 @@ function Navigation() {
         <NavigationContainer scrolled={color}>
           <NavLinks>
             <NavLink to="/catalogue">catalogue</NavLink>
-            <NavLink to="/">
+            {/* <NavLink to="/">
               <SearchIcon />
-            </NavLink>
+            </NavLink> */}
 
             <LogoContainer to="/">
               <Logo className="logo" />
