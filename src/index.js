@@ -9,6 +9,7 @@ import { CartProvider } from "./contexts/CartContext";
 import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
+import { WishlistProvider } from "./contexts/WishlistContext";
 
 const root = ReactDOM.createRoot(document.getElementById("root"));
 root.render(
@@ -17,7 +18,9 @@ root.render(
       <UserProvider>
         <CategoriesProvider>
           <CartProvider>
-            <App />
+            <WishlistProvider>
+              <App />
+            </WishlistProvider>
           </CartProvider>
         </CategoriesProvider>
       </UserProvider>

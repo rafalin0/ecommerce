@@ -1,6 +1,7 @@
-import { useContext } from "react";
+import { useContext, useState, useEffect } from "react";
 
 import { CartContext } from "../../contexts/CartContext";
+import { WishlistContext } from "../../contexts/WishlistContext";
 
 import {
   ProductCardContainer,
@@ -13,10 +14,37 @@ import Button from "../button/Button";
 
 function ProductCard({ product }) {
   const { name, imageUrl, price } = product;
+  const [isLiked, setIsLiked] = useState("notLiked");
   const { addItemToCart } = useContext(CartContext);
+  const { updateWishlist, wishlistItems } = useContext(WishlistContext);
+
+  useEffect(() => {
+    const existingWishlistItem = wishlistItems.find(
+      (wishlistItem) => wishlistItem.id === product.id
+    );
+    if (existingWishlistItem) {
+      setIsLiked("liked");
+    }
+  }, [product, wishlistItems]);
 
   const addProductToCart = () => {
     addItemToCart(product);
+  };
+
+  const getStatus = () => {
+    updateWishlist(product);
+    toggleLike();
+  };
+
+  const toggleLike = () => {
+    const existingWishlistItem = wishlistItems.find(
+      (wishlistItem) => wishlistItem.id === product.id
+    );
+    if (existingWishlistItem) {
+      setIsLiked("notLiked");
+    } else {
+      setIsLiked("liked");
+    }
   };
 
   return (
@@ -28,10 +56,10 @@ function ProductCard({ product }) {
       ></ProductImage>
       <Body>
         <span className="name">{name}</span>
-        <WishlistIcon />
-        <span className="price">₱ {price}</span>
+        <WishlistIcon status={isLiked} onClick={getStatus} />
         <Button buttonType="inverted" onClick={addProductToCart}>
-          Add to Cart
+          <span>₱ {price}</span>
+          <span>Add to Cart</span>
         </Button>
       </Body>
     </ProductCardContainer>

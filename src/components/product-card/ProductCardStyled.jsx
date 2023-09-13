@@ -1,5 +1,5 @@
 import styled from "styled-components";
-import { PiHeartStraight } from "react-icons/pi";
+import WishlistButton from "../wishlist-button/WishlistButton";
 
 import {
   BaseButton,
@@ -7,7 +7,8 @@ import {
   InvertedButton,
 } from "../button/ButtonStyled";
 
-export const WishlistIcon = styled(PiHeartStraight)`
+export const WishlistIcon = styled(WishlistButton)`
+  cursor: pointer;
   position: absolute;
   right: 0;
   top: 0;
@@ -41,16 +42,10 @@ export const Body = styled.div`
   display: grid;
   grid-area: 1 / 1 / 3 / 3;
 
-  span:first-child {
+  & > span:first-child {
     grid-column: span 2;
     width: 75%;
     font-weight: bold;
-  }
-
-  & > span:last-of-type {
-    grid-row: 2/3;
-    grid-column: 1/2;
-    display: none;
   }
 
   ${BaseButton}, ${GoogleButton}, ${InvertedButton} {
@@ -58,8 +53,7 @@ export const Body = styled.div`
     display: none;
     border: 2px solid #3d2f3d;
     padding: 0;
-    grid-row: 2/3;
-    grid-column: 2/3;
+    grid-column: span 2;
   }
 `;
 
@@ -86,27 +80,11 @@ export const ProductCardContainer = styled.div`
     ${Body} {
       height: auto;
 
-      & > span:last-of-type {
+      ${BaseButton}, ${GoogleButton}, ${InvertedButton} {
+        opacity: 1;
         margin-top: 1rem;
-        display: grid;
-        align-self: center;
-      }
-    }
-
-    ${BaseButton}, ${GoogleButton}, ${InvertedButton} {
-      opacity: 1;
-      display: grid;
-      margin-top: 1rem;
-    }
-  }
-
-  @media (max-width: 600) {
-    ${Body} {
-      grid-area: 1 / 1 / 4 / 4;
-      & > span:last-of-type {
-        grid-row: 2/3;
-        grid-column: 1/3;
-        width: 100%;
+        display: flex;
+        justify-content: space-around;
       }
     }
   }
