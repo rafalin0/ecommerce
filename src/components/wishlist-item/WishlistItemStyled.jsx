@@ -22,9 +22,8 @@ export const Base = styled.button`
 `;
 
 export const BagButton = styled(Base)`
-  background-color: #a6a6a6;
+  background-color: rgba(117, 150, 184, 1);
   border-right: none;
-  /* border-top-left-radius: 0.25rem; */
   border-bottom-left-radius: 0.25rem;
   &:hover {
     background-color: #ff8181;
@@ -35,19 +34,15 @@ export const RemoveButton = styled(Base)`
   color: #a6a6a6;
   /* border-top-right-radius: 0.25rem; */
   border-bottom-right-radius: 0.25rem;
-  background: linear-gradient(
-    to right,
-    rgba(255, 129, 129, 0.2) 50%,
-    white 50%
-  );
-  background-size: 200% 100%;
+  background: linear-gradient(to bottom, #a6a6a6 50%, white 50%);
+  background-size: 100% 200%;
   background-position: right bottom;
   transition: all 0.5s ease-out;
 
   &:hover {
-    background-position: left bottom;
+    background-position: left top;
     background-color: white;
-    color: #393939;
+    color: #fff;
   }
 `;
 
@@ -65,9 +60,10 @@ export const ItemDescription = styled.div`
   flex-direction: column;
   justify-content: space-between;
   gap: 5px;
-  font-size: 0.8rem;
+  font-size: 0.75rem;
+  font-family: "Poppins", sans-serif;
   h2 {
-    font-size: 0.8rem;
+    font-size: 0.75rem;
     margin: 0;
   }
 `;

@@ -2,7 +2,7 @@ import styled from "styled-components";
 import WishlistButton from "../wishlist-button/WishlistButton";
 
 import {
-  BaseButton,
+  PrimaryButton,
   GoogleButton,
   InvertedButton,
 } from "../button/ButtonStyled";
@@ -12,8 +12,8 @@ export const WishlistIcon = styled(WishlistButton)`
   position: absolute;
   right: 0;
   top: 0;
-  margin: 1rem;
-  font-weight: bold;
+  margin: 0.7rem 1rem 1rem;
+  font-weight: 600;
   font-size: 2rem;
   justify-content: flex-end;
 `;
@@ -29,11 +29,11 @@ export const ProductImage = styled.div`
 
 export const Body = styled.div`
   background-color: #ffffff;
-  color: #3d2f3d;
+  color: #393939;
   width: 100%;
   min-height: 20%;
   height: auto;
-  font-size: 18px;
+  font-size: 1rem;
   padding: 1rem;
   position: absolute;
   z-index: 10;
@@ -46,9 +46,10 @@ export const Body = styled.div`
     grid-column: span 2;
     width: 75%;
     font-weight: bold;
+    font-family: "Poppins", sans-serif;
   }
 
-  ${BaseButton}, ${GoogleButton}, ${InvertedButton} {
+  ${PrimaryButton}, ${GoogleButton}, ${InvertedButton} {
     width: 100%;
     display: none;
     border: 2px solid #3d2f3d;
@@ -80,7 +81,7 @@ export const ProductCardContainer = styled.div`
     ${Body} {
       height: auto;
 
-      ${BaseButton}, ${GoogleButton}, ${InvertedButton} {
+      ${PrimaryButton}, ${GoogleButton}, ${InvertedButton} {
         opacity: 1;
         margin-top: 1rem;
         display: flex;

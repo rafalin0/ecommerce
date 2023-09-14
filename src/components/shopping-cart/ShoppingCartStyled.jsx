@@ -3,7 +3,7 @@ import styled from "styled-components";
 import { CgClose } from "react-icons/cg";
 
 import {
-  BaseButton,
+  PrimaryButton,
   GoogleButton,
   InvertedButton,
 } from "../button/ButtonStyled";
@@ -67,7 +67,7 @@ export const ShoppingCartFooter = styled.div`
   justify-content: space-between;
 
   p,
-  ${BaseButton}, ${GoogleButton}, ${InvertedButton} {
+  ${PrimaryButton}, ${GoogleButton}, ${InvertedButton} {
     min-width: 100%;
   }
 `;

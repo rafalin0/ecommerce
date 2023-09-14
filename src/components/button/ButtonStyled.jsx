@@ -1,20 +1,24 @@
 import styled from "styled-components";
 
-export const BaseButton = styled.button`
+const BaseButton = styled.button`
   min-width: 8rem;
-  min-height: 3rem;
+  min-height: 2.5rem;
   cursor: pointer;
   width: auto;
   font-size: 0.8rem;
+  font-family: "Poppins", sans-serif;
   border: none;
-  border-radius: 0.25rem;
-  background-color: #393939;
-  color: white;
+  border-radius: 2rem;
+
   text-transform: uppercase;
   display: flex;
   justify-content: center;
   align-items: center;
+`;
 
+export const PrimaryButton = styled(BaseButton)`
+  background-color: #393939;
+  color: white;
   &:hover {
     background-color: #1f1f1f;
   }
@@ -34,16 +38,15 @@ export const InvertedButton = styled(BaseButton)`
   color: #393939;
   border: 2px solid #393939;
   background: linear-gradient(
-    to right,
-    rgba(255, 129, 129, 0.2) 50%,
-    white 50%
+    to top,
+    rgba(255, 129, 129, 0.3) 50%,
+    rgba(255, 129, 129, 0) 50%
   );
-  background-size: 200% 100%;
-  background-position: right bottom;
-  transition: all 0.5s ease-out;
+  background-size: 100% 200%;
+  background-position: right top;
+  transition: all 0.3s ease-out;
 
   &:hover {
     background-position: left bottom;
-    background-color: white;
   }
 `;

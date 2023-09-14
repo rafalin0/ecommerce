@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import {
-  BaseButton,
+  PrimaryButton,
   GoogleButton,
   InvertedButton,
 } from "../button/ButtonStyled";
@@ -15,7 +15,7 @@ export const SignUpContainer = styled.div`
     margin: 10px 0;
   }
 
-  ${BaseButton}, ${GoogleButton}, ${InvertedButton} {
+  ${PrimaryButton}, ${GoogleButton}, ${InvertedButton} {
     min-width: 50%;
     margin: 0 auto;
   }
@@ -26,7 +26,7 @@ export const SignUpContainer = styled.div`
         display: flex;
         flex-direction: column;
         row-gap: 10px;
-        ${BaseButton}, ${GoogleButton}, ${InvertedButton} {
+        ${PrimaryButton}, ${GoogleButton}, ${InvertedButton} {
           min-width: 100%;
         }
       }

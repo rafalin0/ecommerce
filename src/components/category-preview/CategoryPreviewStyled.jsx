@@ -6,7 +6,7 @@ import { ProductCardContainer } from "../product-card/ProductCardStyled";
 export const CategoryName = styled(Link)`
   font-family: "Dancing Script", cursive;
   text-transform: capitalize;
-  color: #744d56;
+  color: rgba(117, 150, 184, 1);
   font-weight: bold;
   text-align: start;
   font-size: 3rem;
@@ -32,7 +32,12 @@ export const CategoryPreviewContainer = styled.div`
   padding: 2rem;
   padding-right: 2rem;
   border-radius: 10px;
-  /* border: 1px solid rgb(231, 224, 231); */
+
+  &:hover {
+    ${CategoryName} {
+      color: #393939;
+    }
+  }
 
   // Media Queries
   @media only screen and (min-width: 1200px) {

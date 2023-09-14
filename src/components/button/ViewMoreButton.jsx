@@ -1,13 +1,11 @@
 import { BsChevronRight } from "react-icons/bs";
 
-import { ExpandingButton, IconContainer } from "./ViewMoreButtonStyled.jsx";
+import { ExpandingButton } from "./ViewMoreButtonStyled.jsx";
 
 const ViewMoreButton = () => {
   return (
     <ExpandingButton>
-      <IconContainer>
-        <BsChevronRight />
-      </IconContainer>
+      <BsChevronRight />
     </ExpandingButton>
   );
 };

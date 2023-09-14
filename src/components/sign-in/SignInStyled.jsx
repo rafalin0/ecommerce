@@ -1,7 +1,7 @@
 import styled from "styled-components";
 
 import {
-  BaseButton,
+  PrimaryButton,
   GoogleButton,
   InvertedButton,
 } from "../button/ButtonStyled";
@@ -20,7 +20,7 @@ export const SignInContainer = styled.div`
     justify-content: space-between;
     gap: 10px;
 
-    ${BaseButton}, ${GoogleButton}, ${InvertedButton} {
+    ${PrimaryButton}, ${GoogleButton}, ${InvertedButton} {
       min-width: 50%;
     }
   }
