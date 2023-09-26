@@ -5,12 +5,8 @@ import ProductCard from "../../components/product-card/ProductCard";
 
 import { CategoriesContext } from "../../contexts/CategoriesContext";
 
-import {
-  CategoryPageContainer,
-  CategoryName,
-  CategoryItemsContainer,
-  Banner,
-} from "./CategoryStyled.jsx";
+import { Banner, PageTitle } from "../../styles/Global";
+import { CategoryItemsContainer } from "./CategoryStyled.jsx";
 
 function Category() {
   const { category } = useParams();
@@ -21,9 +17,9 @@ function Category() {
     setProducts(categoriesMap[category]);
   }, [category, categoriesMap]);
   return (
-    <CategoryPageContainer>
+    <>
       <Banner>
-        <CategoryName>{category}</CategoryName>
+        <PageTitle>{category}</PageTitle>
       </Banner>
 
       <CategoryItemsContainer>
@@ -32,7 +28,7 @@ function Category() {
             <ProductCard key={product.id} product={product} />
           ))}
       </CategoryItemsContainer>
-    </CategoryPageContainer>
+    </>
   );
 }
 

@@ -6,6 +6,7 @@ export const AuthenticationContainer = styled.div`
   justify-content: space-evenly;
   margin: 0 auto;
   padding-top: 20vh;
+  font-family: "Barlow Condensed", sans-serif;
 
   @media (max-width: 600px) {
     & {

@@ -1,4 +1,3 @@
-import { Fragment } from "react";
 import { Outlet } from "react-router-dom";
 
 import Directory from "../../components/directory-grid/Directory";
@@ -39,13 +38,11 @@ function Home() {
     },
   ];
   return (
-    <Fragment>
+    <>
       <HeroSection />
-      <div className="home-section">
-        <Directory categories={categories} />
-      </div>
+      <Directory categories={categories} />
       <Outlet />
-    </Fragment>
+    </>
   );
 }
 

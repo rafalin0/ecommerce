@@ -11,7 +11,7 @@ import {
 export const ShoppingCartContainer = styled.div`
   position: absolute;
   right: 0;
-  width: 30rem;
+  width: min(100%, 30rem);
   height: 100vh;
   display: flex;
   flex-direction: column;
@@ -19,11 +19,7 @@ export const ShoppingCartContainer = styled.div`
   padding: 20px;
   background-color: white;
   z-index: 30;
-
-  @media (max-width: 600px) {
-    min-width: 100vw;
-    left: 0;
-  }
+  font-family: "Barlow Condensed", sans-serif;
 `;
 
 export const CloseIcon = styled(CgClose)`

@@ -36,7 +36,7 @@ export const GoogleButton = styled(BaseButton)`
 
 export const InvertedButton = styled(BaseButton)`
   color: #393939;
-  border: 2px solid #393939;
+  border: 1px solid #393939;
   background: linear-gradient(
     to top,
     rgba(255, 129, 129, 0.3) 50%,

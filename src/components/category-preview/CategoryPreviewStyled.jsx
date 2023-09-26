@@ -1,37 +1,43 @@
 import styled from "styled-components";
 import { Link } from "react-router-dom";
 
-import { ProductCardContainer } from "../product-card/ProductCardStyled";
+import { devices } from "../../styles/Breakpoints";
 
 export const CategoryName = styled(Link)`
   font-family: "Dancing Script", cursive;
   text-transform: capitalize;
-  color: rgba(117, 150, 184, 1);
+  color: #393939;
   font-weight: bold;
-  text-align: start;
-  font-size: 3rem;
+  font-size: 2.3rem;
   line-height: 1rem;
+  align-self: center;
+
+  ~ a {
+    justify-self: flex-end;
+  }
+
+  @media ${devices.tablet} {
+    font-size: 3rem;
+  }
 `;
 
 export const ProductCardsContainer = styled.div`
+  grid-column: 1/3;
   display: grid;
-  grid-template-columns: repeat(4, 1fr);
-  grid-gap: 10px;
-  margin-right: 1rem;
+  grid-template-columns: repeat(5, 1fr);
+  grid-gap: 1rem;
   margin-top: 1rem;
-`;
 
-export const PreviewContent = styled.div`
-  display: grid;
-  grid-template: 1fr / 1fr 6.5rem;
-  align-items: center;
+  @media ${devices.tablet} {
+    grid-gap: 10px;
+  }
 `;
 
 export const CategoryPreviewContainer = styled.div`
-  background-color: rgba(255, 238, 238, 0.5);
-  padding: 2rem;
-  padding-right: 2rem;
-  border-radius: 10px;
+  display: grid;
+  grid-template-columns: 1fr 7rem;
+  justify-content: flex-end;
+  margin-top: 2rem;
 
   &:hover {
     ${CategoryName} {
@@ -40,26 +46,15 @@ export const CategoryPreviewContainer = styled.div`
   }
 
   // Media Queries
-  @media only screen and (min-width: 1200px) {
-    ${ProductCardContainer} {
-      height: 300px;
+  @media ${devices.tablet} {
+    margin-top: 2rem;
+    ${CategoryName} {
+      ~ a {
+        justify-self: flex-end;
+      }
     }
-  }
-  @media (max-width: 992px) {
-    ${PreviewContent} {
-      grid-template: 1fr 5rem / 1fr;
-
-      ${ProductCardsContainer} {
-        margin-right: 0;
-        display: grid;
-        grid-template: 1fr 1fr / 1fr 1fr;
-        gap: 10px;
-      }
-
-      ${ProductCardsContainer} ~ div {
-        display: flex;
-        justify-content: flex-end;
-      }
+    ${ProductCardsContainer} {
+      overflow-x: visible;
     }
   }
 `;

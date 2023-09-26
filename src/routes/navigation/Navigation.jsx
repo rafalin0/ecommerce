@@ -1,4 +1,4 @@
-import React, { Fragment, useState, useContext } from "react";
+import React, { useState, useContext } from "react";
 import { Outlet } from "react-router-dom";
 
 import { PiHeartStraight as WishlistIcon } from "react-icons/pi";
@@ -14,10 +14,14 @@ import CartIcon from "../../components/cart-icon/CartIcon";
 import ShoppingCart from "../../components/shopping-cart/ShoppingCart";
 
 import {
-  NavigationContainer,
+  NavbarContainer,
   NavLinks,
   NavLink,
   LogoContainer,
+  BurgerMenu,
+  BurgerBar,
+  ExtendedNavContainer,
+  ExtendedNavLink,
 } from "./NavigationStyled.jsx";
 
 function Navigation() {
@@ -35,45 +39,97 @@ function Navigation() {
   };
   window.addEventListener("scroll", changeColor);
 
+  // to change burger classes
+  const [burger_class, setBurgerClass] = useState("unclicked");
+
+  // hide or show extended navigation
+  const [isNavExtended, setIsNavExtended] = useState(false);
+
+  // update
+  const toggleNav = () => {
+    if (!isNavExtended) {
+      setBurgerClass("clicked");
+    } else {
+      setBurgerClass("unclicked");
+    }
+    setIsNavExtended((currentValue) => !currentValue);
+  };
+
+  // hide or show shopping cart
   const toggleIsCartOpen = () => {
     setIsCartOpen(!isCartOpen);
+    toggleNav();
   };
 
   return (
-    <div>
-      <Fragment>
-        <NavigationContainer scrolled={color}>
-          <NavLinks>
-            <NavLink to="/catalogue">catalogue</NavLink>
-            {/* <NavLink to="/">
-              <SearchIcon />
-            </NavLink> */}
+    <>
+      <NavbarContainer scrolled={color}>
+        <NavLinks>
+          <NavLink to="/catalogue">catalogue</NavLink>
 
-            <LogoContainer to="/">
-              <Logo className="logo" />
-            </LogoContainer>
+          <LogoContainer to="/">
+            <Logo className="logo" />
+          </LogoContainer>
 
-            <NavLink to="/wishlist">
-              <WishlistIcon />
+          <NavLink to="/wishlist">
+            <WishlistIcon />
+          </NavLink>
+          <NavLink onClick={toggleIsCartOpen}>
+            <CartIcon />
+          </NavLink>
+          {currentUser ? (
+            <NavLink as="span" onClick={signOutUser}>
+              SIGN OUT
             </NavLink>
-            <NavLink onClick={toggleIsCartOpen}>
-              <CartIcon />
+          ) : (
+            <NavLink to="/account">
+              <AccountIcon />
             </NavLink>
-            {currentUser ? (
-              <NavLink as="span" onClick={signOutUser}>
-                SIGN OUT
-              </NavLink>
-            ) : (
-              <NavLink to="/account">
-                <AccountIcon />
-              </NavLink>
-            )}
-          </NavLinks>
-          {isCartOpen && <ShoppingCart />}
-        </NavigationContainer>
-        <Outlet />
-      </Fragment>
-    </div>
+          )}
+        </NavLinks>
+        <BurgerMenu onClick={toggleNav}>
+          <BurgerBar menuType={burger_class} />
+          <BurgerBar menuType={burger_class} />
+          <BurgerBar menuType={burger_class} />
+        </BurgerMenu>
+
+        {isCartOpen && <ShoppingCart />}
+      </NavbarContainer>
+
+      {isNavExtended && (
+        <ExtendedNavContainer>
+          <ExtendedNavLink onClick={toggleNav} to="/catalogue/jewelry sets">
+            jewelry sets
+          </ExtendedNavLink>
+          <ExtendedNavLink onClick={toggleNav} to="/catalogue/necklaces">
+            necklaces
+          </ExtendedNavLink>
+          <ExtendedNavLink onClick={toggleNav} to="/catalogue/earrings">
+            earrings
+          </ExtendedNavLink>
+          <ExtendedNavLink onClick={toggleNav} to="/catalogue/rings">
+            rings
+          </ExtendedNavLink>
+          <ExtendedNavLink onClick={toggleNav} to="/catalogue/bracelets">
+            bracelets
+          </ExtendedNavLink>
+          <ExtendedNavLink onClick={toggleNav} to="/wishlist">
+            wishlist
+          </ExtendedNavLink>
+          <ExtendedNavLink onClick={toggleIsCartOpen}>cart</ExtendedNavLink>
+          {currentUser ? (
+            <ExtendedNavLink as="span" onClick={signOutUser}>
+              SIGN OUT
+            </ExtendedNavLink>
+          ) : (
+            <ExtendedNavLink onClick={toggleNav} to="/account">
+              SIGN IN
+            </ExtendedNavLink>
+          )}
+        </ExtendedNavContainer>
+      )}
+      <Outlet />
+    </>
   );
 }
 

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { devices } from "../../styles/Breakpoints";
 
 export const CheckoutItems = styled.div`
   padding: 5px 0;
@@ -19,28 +20,40 @@ export const Total = styled.div`
 `;
 
 export const Main = styled.div`
-  width: 60%;
-  height: 100%;
-  padding: 10vh 5vw 10vh 15vw;
+  background-color: #fff;
+  padding: 10% 5%;
+  @media ${devices.mobileL} {
+    padding: 10vh 5vw 10vh 15vw;
+    width: max(60%, 800px);
+  }
 `;
 
 export const OrderSummary = styled.div`
-  max-width: 45%;
-  min-width: 800px;
+  padding: 10% 5%;
   height: 100%;
-  padding: 10vh 15vw 10vh 2vw;
+  order: -1;
   background-color: #f6f6f6;
   border-left: 1px solid #dedede;
+
+  @media ${devices.mobileL} {
+    padding: 10vh 15vw 10vh 2vw;
+    order: 0;
+    width: max(45%, 800px);
+  }
 `;
 
 export const CheckoutContainer = styled.div`
-  background-color: #fff;
-  width: 100vw;
+  font-family: "Barlow Condensed", sans-serif;
+  width: 100%;
   min-height: 100vh;
   height: auto;
   z-index: 100;
   display: flex;
-  flex-direction: row;
+  flex-direction: column;
   justify-content: center;
   color: #393939;
+
+  @media ${devices.mobileL} {
+    flex-direction: row;
+  }
 `;

@@ -6,7 +6,6 @@ import { UserProvider } from "./contexts/UserContext";
 import { CategoriesProvider } from "./contexts/CategoriesContext";
 import { CartProvider } from "./contexts/CartContext";
 
-import "./index.scss";
 import App from "./App";
 import reportWebVitals from "./reportWebVitals";
 import { WishlistProvider } from "./contexts/WishlistContext";

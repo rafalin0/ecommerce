@@ -4,11 +4,8 @@ import { WishlistContext } from "../../contexts/WishlistContext";
 
 import WishlistItem from "../../components/wishlist-item/WishlistItem";
 
-import {
-  WishlistContainer,
-  WishlistItemsContainer,
-  Banner,
-} from "./WishlistStyled";
+import { Banner, PageTitle } from "../../styles/Global";
+import { WishlistContainer, WishlistItemsContainer } from "./WishlistStyled";
 
 function Wishlist() {
   const { wishlistItems } = useContext(WishlistContext);
@@ -16,7 +13,7 @@ function Wishlist() {
   return (
     <WishlistContainer>
       <Banner>
-        <h1>My Wishlist</h1>
+        <PageTitle>My Wishlist</PageTitle>
       </Banner>
 
       <WishlistItemsContainer>

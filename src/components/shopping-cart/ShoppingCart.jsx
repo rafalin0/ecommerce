@@ -27,6 +27,7 @@ function ShoppingCart() {
 
   const goToCheckoutHandler = () => {
     navigate("/checkout");
+    toggleIsCartOpen();
   };
 
   return (
