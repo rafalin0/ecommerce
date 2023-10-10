@@ -5,7 +5,7 @@ const BaseButton = styled.button`
   min-height: 2.5rem;
   cursor: pointer;
   width: auto;
-  font-size: 0.8rem;
+  font-size: 0.8em;
   font-family: "Poppins", sans-serif;
   border: none;
   border-radius: 2rem;

@@ -1,7 +1,9 @@
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { CartContext } from "../../contexts/CartContext";
-import { WishlistContext } from "../../contexts/WishlistContext";
+import { addItemToCart } from "../../store/cart/cartAction.js";
+import { selectCartItems } from "../../store/cart/cartSelector.js";
+import { updateWishlist } from "../../store/wishlist/wishlistAction.js";
+import { selectWishlistItems } from "../../store/wishlist/wishlistSelector.js";
 
 import {
   ItemDescription,
@@ -15,17 +17,16 @@ import {
 } from "./WishlistItemStyled";
 
 function WishlistItem(props) {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
   const {
     wishlistItem: { name, imageUrl, price },
   } = props;
-  const { updateWishlist } = useContext(WishlistContext);
-  console.log("wish", props.wishlistItem);
-
-  const { addItemToCart } = useContext(CartContext);
+  const wishlistItems = useSelector(selectWishlistItems);
 
   const addProductToCart = () => {
-    addItemToCart(props.wishlistItem);
-    updateWishlist(props.wishlistItem);
+    dispatch(addItemToCart(cartItems, props.wishlistItem));
+    dispatch(updateWishlist(wishlistItems, props.wishlistItem));
   };
 
   return (
@@ -43,7 +44,11 @@ function WishlistItem(props) {
         <BagButton buttonType="outline" onClick={addProductToCart}>
           <MoveToBag />
         </BagButton>
-        <RemoveButton onClick={() => updateWishlist(props.wishlistItem)}>
+        <RemoveButton
+          onClick={() =>
+            dispatch(updateWishlist(wishlistItems, props.wishlistItem))
+          }
+        >
           <RemoveFromWishlist />
         </RemoveButton>
       </BtnContainer>

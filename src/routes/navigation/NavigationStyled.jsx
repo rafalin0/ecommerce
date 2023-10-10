@@ -27,6 +27,7 @@ const unclickedAnimation = css`
 
 export const NavLinks = styled.div`
   text-transform: uppercase;
+  font-family: "Barlow Condensed", sans-serif;
   width: 90vw;
   height: 100%;
   margin: 0 auto;
@@ -42,7 +43,7 @@ export const NavLink = styled(Link)`
   color: #1c1c11;
 
   & > * {
-    font-size: 1.3rem;
+    font-size: 1.3em;
   }
 
   &::after {
@@ -64,7 +65,7 @@ export const NavLink = styled(Link)`
     transform-origin: bottom left;
   }
 
-  @media ${devices.tablet} {
+  @media ${devices.mobileL} {
     display: inline-block;
   }
 `;
@@ -111,24 +112,24 @@ export const BurgerMenu = styled.div`
 export const ExtendedNavLink = styled(Link)`
   border-bottom: 1px solid #ff8181;
   padding: 1rem;
+  font-family: "Barlow Condensed", sans-serif;
 `;
 
 export const ExtendedNavContainer = styled.div`
   position: fixed;
   z-index: 10;
-  padding: 8rem 1.5rem 0;
   background-color: #fff;
-  height: 100vh;
+  height: 100dvh;
   width: 100%;
   display: flex;
   flex-direction: column;
   align-content: center;
   align-items: center;
+  justify-content: center;
   text-transform: lowercase;
-  font-size: 2rem;
-  font-family: "Barlow Condensed", sans-serif;
+  font-size: 1.8rem;
 
-  @media ${devices.tablet} {
+  @media ${devices.mobileL} {
     display: none;
   }
 `;

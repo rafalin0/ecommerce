@@ -1,12 +1,12 @@
-import { useContext } from "react";
+import { useSelector } from "react-redux";
 import { LiaShoppingBagSolid as ShoppingIcon } from "react-icons/lia";
 
-import { CartContext } from "../../contexts/CartContext";
+import { selectCartCount } from "../../store/cart/cartSelector.js";
 
 import { CartIconContainer, CartCount } from "./CartIconStyled.jsx";
 
 function CartIcon() {
-  const { cartCount } = useContext(CartContext);
+  const cartCount = useSelector(selectCartCount);
 
   return (
     <CartIconContainer>

@@ -1,12 +1,14 @@
-import React, { useState, useContext } from "react";
+import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
+import { useSelector, useDispatch } from "react-redux";
 
 import { PiHeartStraight as WishlistIcon } from "react-icons/pi";
 import { BsPerson as AccountIcon } from "react-icons/bs";
 // import { LuSearch as SearchIcon } from "react-icons/lu";
 
-import { UserContext } from "../../contexts/UserContext";
-import { CartContext } from "../../contexts/CartContext";
+import { selectCurrentUser } from "../../store/user/userSelector";
+import { selectIsCartOpen } from "../../store/cart/cartSelector";
+import { setIsCartOpen } from "../../store/cart/cartAction";
 import { signOutUser } from "../../utils/firebase/firebase";
 
 import { ReactComponent as Logo } from "../../assets/BIO-Logo.svg";
@@ -25,8 +27,9 @@ import {
 } from "./NavigationStyled.jsx";
 
 function Navigation() {
-  const { currentUser } = useContext(UserContext);
-  const { isCartOpen, setIsCartOpen } = useContext(CartContext);
+  const dispatch = useDispatch();
+  const currentUser = useSelector(selectCurrentUser);
+  const isCartOpen = useSelector(selectIsCartOpen);
 
   // changing the navbar background on scroll
   const [color, setColor] = useState(false);
@@ -57,7 +60,7 @@ function Navigation() {
 
   // hide or show shopping cart
   const toggleIsCartOpen = () => {
-    setIsCartOpen(!isCartOpen);
+    dispatch(setIsCartOpen(!isCartOpen));
     toggleNav();
   };
 

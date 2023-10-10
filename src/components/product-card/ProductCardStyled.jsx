@@ -103,7 +103,7 @@ export const Body = styled.div`
 `;
 
 export const ProductCardContainer = styled.div`
-  max-width: 390px;
+  max-width: 490px;
   min-width: 290px;
   max-height: 390px;
   height: 13em;

@@ -1,4 +1,5 @@
 import styled from "styled-components";
+import { devices } from "../../styles/Breakpoints";
 
 export const BackgroundImage = styled.div`
   width: 100%;
@@ -20,17 +21,26 @@ export const DirectoryBody = styled.div`
 
   h2 {
     font-weight: light;
-    font-size: 2rem;
+    font-size: 2em;
     color: #393939;
     text-transform: capitalize;
     font-family: "Dancing Script", cursive;
   }
+  @media ${devices.laptopL} {
+    font-size: 1.7rem;
+
+    & > Button {
+      min-width: 16rem;
+      min-height: 5rem;
+      border-radius: 5rem;
+    }
+  }
 `;
 
 export const DirectoryItemContainer = styled.div`
-  min-width: 15rem;
+  /* min-width: max-content(18rem, 100%); */
   max-height: 300px;
-  flex: 1 1 auto;
+  flex: 1 1 33%;
   border-radius: 0.25rem;
   overflow: hidden;
   display: flex;
@@ -44,5 +54,9 @@ export const DirectoryItemContainer = styled.div`
     & ${BackgroundImage} {
       filter: blur(1px) brightness(85%);
     }
+  }
+
+  @media ${devices.mobileL} {
+    flex: 1 1 30%;
   }
 `;

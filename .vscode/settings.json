@@ -1,5 +1,12 @@
 {
   "editor.tabSize": 2,
   "workbench.editor.closeEmptyGroups": false,
-  "workbench.editor.enablePreview": false
+  "workbench.editor.enablePreview": false,
+  "editor.defaultFormatter": "rvest.vs-code-prettier-eslint",
+  "cSpell.words": [
+    "unclicked"
+  ],
+  "[javascript]": {
+    "editor.defaultFormatter": "esbenp.prettier-vscode"
+  }
 }

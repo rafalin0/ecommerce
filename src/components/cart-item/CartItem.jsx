@@ -1,6 +1,11 @@
-import { useContext } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { CartContext } from "../../contexts/CartContext";
+import {
+  addItemToCart,
+  removeItemFromCart,
+  clearCartItemFromCart,
+} from "../../store/cart/cartAction.js";
+import { selectCartItems } from "../../store/cart/cartSelector.js";
 
 import {
   CartItemContainer,
@@ -10,11 +15,10 @@ import {
 } from "./CartItemStyled.jsx";
 
 function CartItem({ cartItem }) {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
   const { name, price, quantity, imageUrl } = cartItem;
   const total = quantity * price;
-
-  const { addItemToCart, removeItemFromCart, clearCartItemFromCart } =
-    useContext(CartContext);
 
   return (
     <CartItemContainer>
@@ -29,7 +33,7 @@ function CartItem({ cartItem }) {
             type="button"
             className="decrement-quantity"
             ariaLabel="Subtract one"
-            onClick={() => removeItemFromCart(cartItem)}
+            onClick={() => dispatch(removeItemFromCart(cartItems, cartItem))}
           >
             <span>&#8722;</span>
           </button>
@@ -50,7 +54,7 @@ function CartItem({ cartItem }) {
           className="increment-quantity"
           data-direction="1"
           onClick={() => {
-            addItemToCart(cartItem);
+            dispatch(addItemToCart(cartItems, cartItem));
           }}
         >
           <span>&#43;</span>
@@ -58,7 +62,7 @@ function CartItem({ cartItem }) {
       </QuantitySelector>
       <h4 className="total">₱ {total}</h4>
       <RemoveIcon
-        onClick={() => clearCartItemFromCart(cartItem)}
+        onClick={() => dispatch(clearCartItemFromCart(cartItems, cartItem))}
         className="remove-icon"
       />
     </CartItemContainer>

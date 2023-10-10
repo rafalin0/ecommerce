@@ -20,10 +20,11 @@ export const AnnouncementContainer = styled.div`
   &:first-child {
     color: #744d56;
     font-weight: bold;
+    font-size: 1rem;
 
     span {
       position: inherit;
-      font-size: 1.3rem;
+      font-size: 1.3em;
       bottom: 90%;
       font-family: "Dancing Script", cursive;
       text-transform: capitalize;
@@ -31,7 +32,7 @@ export const AnnouncementContainer = styled.div`
 
     h1 {
       font-family: "Barlow Condensed", sans-serif;
-      font-size: 2.5rem;
+      font-size: 2.5em;
       text-align: left;
       margin-top: 0;
       text-transform: uppercase;
@@ -40,14 +41,26 @@ export const AnnouncementContainer = styled.div`
 
   p {
     font-family: "Poppins", sans-serif;
-    font-size: 1.1rem;
+    font-size: 1.1em;
     color: #3d2f3d;
     font-weight: normal;
-    margin-block: 0.6rem;
+    margin-block: 0.6em;
   }
 
   & > button {
-    margin-top: 2rem;
+    margin-top: 2em;
+  }
+
+  @media ${devices.laptopL} {
+    &:first-child {
+      font-size: 1.7em;
+    }
+    & > button {
+      font-size: 1.7rem;
+      min-width: 16rem;
+      min-height: 5rem;
+      border-radius: 5rem;
+    }
   }
 `;
 

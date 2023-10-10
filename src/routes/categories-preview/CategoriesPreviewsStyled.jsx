@@ -9,10 +9,10 @@ export const CategoriesPreviewContainer = styled.div`
   display: flex;
   flex-direction: column;
   row-gap: 1rem;
-  overflow-y: scroll;
+  overflow-y: auto;
   overflow-x: hidden;
 
-  @media ${devices.tablet} {
+  @media ${devices.laptop} {
     overflow: visible;
   }
 `;

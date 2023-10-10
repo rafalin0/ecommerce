@@ -1,7 +1,10 @@
-import { useContext, useState, useEffect } from "react";
+import { useState, useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
 
-import { CartContext } from "../../contexts/CartContext";
-import { WishlistContext } from "../../contexts/WishlistContext";
+import { selectCartItems } from "../../store/cart/cartSelector";
+import { addItemToCart } from "../../store/cart/cartAction";
+import { updateWishlist } from "../../store/wishlist/wishlistAction";
+import { selectWishlistItems } from "../../store/wishlist/wishlistSelector";
 
 import {
   ProductCardContainer,
@@ -13,10 +16,12 @@ import {
 import Button from "../button/Button";
 
 function ProductCard({ product }) {
+  const dispatch = useDispatch();
+  const cartItems = useSelector(selectCartItems);
+  const wishlistItems = useSelector(selectWishlistItems);
+
   const { name, imageUrl, price } = product;
   const [isLiked, setIsLiked] = useState("notLiked");
-  const { addItemToCart } = useContext(CartContext);
-  const { updateWishlist, wishlistItems } = useContext(WishlistContext);
 
   useEffect(() => {
     const existingWishlistItem = wishlistItems.find(
@@ -28,11 +33,11 @@ function ProductCard({ product }) {
   }, [product, wishlistItems]);
 
   const addProductToCart = () => {
-    addItemToCart(product);
+    dispatch(addItemToCart(cartItems, product));
   };
 
   const getStatus = () => {
-    updateWishlist(product);
+    dispatch(updateWishlist(wishlistItems, product));
     toggleLike();
   };
 
