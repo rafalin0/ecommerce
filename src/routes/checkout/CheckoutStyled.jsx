@@ -1,59 +1,47 @@
 import styled from "styled-components";
+
 import { devices } from "../../styles/Breakpoints";
 
-export const CheckoutItems = styled.div`
-  padding: 5px 0;
-  border-bottom: 1px solid #bebdbc;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow-y: auto;
-`;
-
-export const Total = styled.div`
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  font-weight: bold;
-  font-size: 1.2rem;
-`;
-
 export const Main = styled.div`
-  background-color: #fff;
-  padding: 10% 5%;
+  padding: 5%;
+  height: 100%;
   @media ${devices.mobileL} {
-    padding: 10vh 5vw 10vh 15vw;
-    width: max(60%, 800px);
+    padding: 10vh 5vw 10vh 10vw;
+    width: max(60%, 1000px);
   }
 `;
 
-export const OrderSummary = styled.div`
-  padding: 10% 5%;
-  height: 100%;
+export const Sidebar = styled.div`
+  height: inherit;
   order: -1;
-  background-color: #f6f6f6;
   border-left: 1px solid #dedede;
+  overflow-y: scroll;
 
   @media ${devices.mobileL} {
-    padding: 10vh 15vw 10vh 2vw;
+    background-color: #f6f6f6;
+    padding: 10vh 10vw 10vh 2vw;
     order: 0;
-    width: max(45%, 800px);
+    width: max(40%, 800px);
   }
 `;
 
 export const CheckoutContainer = styled.div`
+  background-color: #fff;
+  padding-top: 5vh;
   font-family: "Barlow Condensed", sans-serif;
   width: 100%;
   min-height: 100vh;
   height: auto;
-  z-index: 100;
   display: flex;
   flex-direction: column;
-  justify-content: center;
+  justify-content: flex-start;
   color: #393939;
 
   @media ${devices.mobileL} {
+    padding-top: 0;
+    height: 100vh;
     flex-direction: row;
+    justify-content: center;
+    overflow: none;
   }
 `;
