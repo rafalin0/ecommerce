@@ -2,12 +2,6 @@ import { Routes, Route } from "react-router-dom";
 import { useEffect } from "react";
 import { useDispatch } from "react-redux";
 
-import {
-  onAuthStateChangedListener,
-  createUserDocumentFromAuth,
-} from "./utils/firebase/firebase";
-import { setCurrentUser } from "./store/user/userAction";
-
 import { GlobalStyles } from "./styles/Global";
 
 import Navigation from "./routes/navigation/Navigation";
@@ -16,18 +10,13 @@ import Catalogue from "./routes/catalogue/Catalogue";
 import Authentication from "./routes/authentication/Authentication";
 import Wishlist from "./routes/wishlist/Wishlist";
 import Checkout from "./routes/checkout/Checkout";
+import { checkUserSession } from "./store/user/userAction.ts";
 
 function App() {
-  const dispatch= useDispatch();
+  const dispatch = useDispatch();
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChangedListener((user) => {
-      if (user) {
-        createUserDocumentFromAuth(user);
-      }
-      dispatch(setCurrentUser(user));
-    });
-    return unsubscribe;
+    dispatch(checkUserSession());
   }, [dispatch]);
 
   return (

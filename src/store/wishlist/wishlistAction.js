@@ -1,4 +1,4 @@
-import { createAction } from "../../utils/reducer/reducer";
+import { createAction } from "../../utils/reducer/reducer.ts";
 
 import { WISHLIST_ACTION_TYPES } from "./wishlistTypes";
 
