@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { SpinnerContainer } from "../spinner/SpinnerStyled";
+
 const BaseButton = styled.button`
   min-width: 8rem;
   min-height: 2.5rem;
@@ -49,4 +51,9 @@ export const InvertedButton = styled(BaseButton)`
   &:hover {
     background-position: left bottom;
   }
+`;
+
+export const ButtonSpinner = styled(SpinnerContainer)`
+  height: 25px;
+  width: 25px;
 `;

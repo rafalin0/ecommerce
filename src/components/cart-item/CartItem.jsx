@@ -4,15 +4,15 @@ import {
   addItemToCart,
   removeItemFromCart,
   clearCartItemFromCart,
-} from "../../store/cart/cartAction.js";
-import { selectCartItems } from "../../store/cart/cartSelector.js";
+} from "../../store/cart/cartAction.ts";
+import { selectCartItems } from "../../store/cart/cartSelector.ts";
 
 import {
   CartItemContainer,
   CartItemDesc,
   QuantitySelector,
   RemoveIcon,
-} from "./CartItemStyled.jsx";
+} from "./CartItemStyled";
 
 function CartItem({ cartItem }) {
   const dispatch = useDispatch();

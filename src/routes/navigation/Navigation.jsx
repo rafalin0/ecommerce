@@ -1,34 +1,17 @@
 import React, { useState } from "react";
 import { Outlet } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
+import { useSelector } from "react-redux";
 
-import { PiHeartStraight as WishlistIcon } from "react-icons/pi";
-import { BsPerson as AccountIcon } from "react-icons/bs";
-// import { LuSearch as SearchIcon } from "react-icons/lu";
+import { selectIsCartOpen } from "../../store/cart/cartSelector.ts";
 
-import { selectCurrentUser } from "../../store/user/userSelector";
-import { selectIsCartOpen } from "../../store/cart/cartSelector";
-import { setIsCartOpen } from "../../store/cart/cartAction";
-import { signOutUser } from "../../utils/firebase/firebase";
-
-import { ReactComponent as Logo } from "../../assets/BIO-Logo.svg";
-import CartIcon from "../../components/cart-icon/CartIcon";
 import ShoppingCart from "../../components/shopping-cart/ShoppingCart";
 
-import {
-  NavbarContainer,
-  NavLinks,
-  NavLink,
-  LogoContainer,
-  BurgerMenu,
-  BurgerBar,
-  ExtendedNavContainer,
-  ExtendedNavLink,
-} from "./NavigationStyled.jsx";
+import { NavbarContainer } from "./NavigationStyled";
+import NavLinks from "../../components/nav-links/NavLinks";
+import ExtendedNav from "../../components/extended-nav/ExtendedNav";
+import BurgerMenu from "../../components/burger-menu/BurgerMenu";
 
 function Navigation() {
-  const dispatch = useDispatch();
-  const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
 
   // changing the navbar background on scroll
@@ -58,79 +41,14 @@ function Navigation() {
     setIsNavExtended((currentValue) => !currentValue);
   };
 
-  // hide or show shopping cart
-  const toggleIsCartOpen = () => {
-    dispatch(setIsCartOpen(!isCartOpen));
-    toggleNav();
-  };
-
   return (
     <>
       <NavbarContainer scrolled={color}>
-        <NavLinks>
-          <NavLink to="/catalogue">catalogue</NavLink>
-
-          <LogoContainer to="/">
-            <Logo className="logo" />
-          </LogoContainer>
-
-          <NavLink to="/wishlist">
-            <WishlistIcon />
-          </NavLink>
-          <NavLink onClick={toggleIsCartOpen}>
-            <CartIcon />
-          </NavLink>
-          {currentUser ? (
-            <NavLink as="span" onClick={signOutUser}>
-              SIGN OUT
-            </NavLink>
-          ) : (
-            <NavLink to="/account">
-              <AccountIcon />
-            </NavLink>
-          )}
-        </NavLinks>
-        <BurgerMenu onClick={toggleNav}>
-          <BurgerBar menuType={burger_class} />
-          <BurgerBar menuType={burger_class} />
-          <BurgerBar menuType={burger_class} />
-        </BurgerMenu>
-
+        <NavLinks toggleNav={toggleNav} />
+        <BurgerMenu toggleNav={toggleNav} burgerClass={burger_class} />
         {isCartOpen && <ShoppingCart />}
       </NavbarContainer>
-
-      {isNavExtended && (
-        <ExtendedNavContainer>
-          <ExtendedNavLink onClick={toggleNav} to="/catalogue/jewelry sets">
-            jewelry sets
-          </ExtendedNavLink>
-          <ExtendedNavLink onClick={toggleNav} to="/catalogue/necklaces">
-            necklaces
-          </ExtendedNavLink>
-          <ExtendedNavLink onClick={toggleNav} to="/catalogue/earrings">
-            earrings
-          </ExtendedNavLink>
-          <ExtendedNavLink onClick={toggleNav} to="/catalogue/rings">
-            rings
-          </ExtendedNavLink>
-          <ExtendedNavLink onClick={toggleNav} to="/catalogue/bracelets">
-            bracelets
-          </ExtendedNavLink>
-          <ExtendedNavLink onClick={toggleNav} to="/wishlist">
-            wishlist
-          </ExtendedNavLink>
-          <ExtendedNavLink onClick={toggleIsCartOpen}>cart</ExtendedNavLink>
-          {currentUser ? (
-            <ExtendedNavLink as="span" onClick={signOutUser}>
-              SIGN OUT
-            </ExtendedNavLink>
-          ) : (
-            <ExtendedNavLink onClick={toggleNav} to="/account">
-              SIGN IN
-            </ExtendedNavLink>
-          )}
-        </ExtendedNavContainer>
-      )}
+      {isNavExtended && <ExtendedNav toggleNav={toggleNav} />}
       <Outlet />
     </>
   );

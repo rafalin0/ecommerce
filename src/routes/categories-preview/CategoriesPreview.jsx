@@ -1,7 +1,6 @@
-
 import { useSelector } from "react-redux";
 
-import { selectCategoriesMap } from "../../store/categories/categorySelector";
+import { selectCategoriesMap } from "../../store/categories/categorySelector.ts";
 
 import CategoryPreview from "../../components/category-preview/CategoryPreview";
 

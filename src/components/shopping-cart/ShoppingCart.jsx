@@ -6,8 +6,8 @@ import {
   selectCartItems,
   selectCartCount,
   selectCartTotal,
-} from "../../store/cart/cartSelector";
-import { setIsCartOpen } from "../../store/cart/cartAction";
+} from "../../store/cart/cartSelector.ts";
+import { setIsCartOpen } from "../../store/cart/cartAction.ts";
 
 import Button from "../button/Button";
 import CartItem from "../cart-item/CartItem";
@@ -19,7 +19,7 @@ import {
   EmptyMessage,
   ShoppingCartFooter,
   ShoppingCartItems,
-} from "./ShoppingCartStyled.jsx";
+} from "./ShoppingCartStyled";
 
 function ShoppingCart() {
   const dispatch = useDispatch();

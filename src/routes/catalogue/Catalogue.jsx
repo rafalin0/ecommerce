@@ -4,14 +4,14 @@ import { useDispatch } from "react-redux";
 
 import CategoriesPreview from "../categories-preview/CategoriesPreview";
 import Category from "../category/Category";
-import { fetchCategoriesStart } from "../../store/categories/categoryAction";
+import { fetchCategoriesStart } from "../../store/categories/categoryAction.ts";
 
 function Catalogue() {
   const dispatch = useDispatch();
 
   useEffect(() => {
     dispatch(fetchCategoriesStart());
-  }, []);
+  }, [dispatch]);
 
   return (
     <Routes>

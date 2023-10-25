@@ -11,7 +11,7 @@ import {
 export const ShoppingCartContainer = styled.div`
   position: absolute;
   right: 0;
-  width: min(100%, 30rem);
+  width: min(100%, 35rem);
   height: 100vh;
   display: flex;
   flex-direction: column;

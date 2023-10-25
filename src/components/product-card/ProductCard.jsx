@@ -1,8 +1,8 @@
 import { useState, useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 
-import { selectCartItems } from "../../store/cart/cartSelector";
-import { addItemToCart } from "../../store/cart/cartAction";
+import { selectCartItems } from "../../store/cart/cartSelector.ts";
+import { addItemToCart } from "../../store/cart/cartAction.ts";
 import { updateWishlist } from "../../store/wishlist/wishlistAction";
 import { selectWishlistItems } from "../../store/wishlist/wishlistSelector";
 
@@ -11,7 +11,7 @@ import {
   ProductImage,
   Body,
   WishlistIcon,
-} from "./ProductCardStyled.jsx";
+} from "./ProductCardStyled";
 
 import Button from "../button/Button";
 
