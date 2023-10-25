@@ -20,16 +20,22 @@ import {
 } from "./NavLinksStyled";
 import DropdownMenu from "../dropdown-menu/DropdownMenu";
 
-const NavLinks = ({ toggleNav }) => {
+const NavLinks = ({ setIsNavExtended, setBurgerClass }) => {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
+  // navbar dropdown menu - categories
   const [showDropdown, setShowDropdown] = useState(false);
 
   // hide or show shopping cart
   const toggleIsCartOpen = () => {
     dispatch(setIsCartOpen(!isCartOpen));
-    toggleNav();
+    closeNav();
+  };
+
+  const closeNav = () => {
+    setBurgerClass("unclicked");
+    setIsNavExtended(false);
   };
 
   const signOutUser = () => dispatch(signOutStart());
@@ -47,7 +53,11 @@ const NavLinks = ({ toggleNav }) => {
       </LeftLinks>
       {showDropdown && <DropdownMenu toggle={setShowDropdown} />}
 
-      <LogoContainer to="/" onMouseUp={() => setShowDropdown(false)}>
+      <LogoContainer
+        to="/"
+        onMouseUp={() => setShowDropdown(false)}
+        onClick={closeNav}
+      >
         <Logo className="logo" />
       </LogoContainer>
 

@@ -36,7 +36,7 @@ function ShoppingCart() {
 
   const goToCheckoutHandler = () => {
     navigate("/checkout");
-    toggleIsCartOpen();
+    dispatch(setIsCartOpen(false));
   };
 
   return (

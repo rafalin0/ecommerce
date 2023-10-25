@@ -44,7 +44,10 @@ function Navigation() {
   return (
     <>
       <NavbarContainer scrolled={color}>
-        <NavLinks toggleNav={toggleNav} />
+        <NavLinks
+          setIsNavExtended={setIsNavExtended}
+          setBurgerClass={setBurgerClass}
+        />
         <BurgerMenu toggleNav={toggleNav} burgerClass={burger_class} />
         {isCartOpen && <ShoppingCart />}
       </NavbarContainer>

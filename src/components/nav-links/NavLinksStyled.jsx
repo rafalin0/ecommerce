@@ -47,13 +47,16 @@ export const AccountIcon = styled(PersonIcon)`
 
 export const LogoContainer = styled(Link)`
   height: 100%;
+  width: 70%;
   padding: 0.5rem 0.5rem 1.3rem 0;
-  margin: auto;
+  margin-right: auto;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
 
   @media ${devices.mobileL} {
+    margin: auto;
+    width: auto;
     justify-content: center;
     padding: 0.5rem 0.5rem 1.3rem;
 

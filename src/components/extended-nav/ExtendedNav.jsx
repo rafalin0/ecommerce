@@ -28,6 +28,7 @@ function ExtendedNav({ toggleNav }) {
   // hide or show shopping cart
   const toggleIsCartOpen = () => {
     dispatch(setIsCartOpen(!isCartOpen));
+    toggleNav();
   };
 
   const signOutUser = () => dispatch(signOutStart());
