@@ -9,7 +9,7 @@ export const AnnouncementContainer = styled.div`
   max-height: 100%;
   height: 50%;
   padding: 7% 5%;
-  background-color: rgba(248, 241, 244, 0.7);
+  background-color: rgba(248, 241, 244, 0.4);
 
   display: flex;
   flex-direction: column;
@@ -20,7 +20,7 @@ export const AnnouncementContainer = styled.div`
   &:first-child {
     color: #744d56;
     font-weight: bold;
-    font-size: 1rem;
+    font-size: 0.7rem;
 
     span {
       position: inherit;
@@ -49,6 +49,16 @@ export const AnnouncementContainer = styled.div`
 
   & > button {
     margin-top: 2em;
+    font-size: 1rem;
+  }
+
+  @media ${devices.tablet} {
+    &:first-child {
+      font-size: 1em;
+    }
+    & > button {
+      font-size: 1rem;
+    }
   }
 
   @media ${devices.laptopL} {
