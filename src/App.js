@@ -4,12 +4,12 @@ import { useDispatch } from "react-redux";
 
 import { GlobalStyles } from "./styles/Global";
 
-import Navigation from "./routes/navigation/Navigation";
-import Home from "./routes/home/Home";
-import Catalogue from "./routes/catalogue/Catalogue";
-import Authentication from "./routes/authentication/Authentication";
-import Wishlist from "./routes/wishlist/Wishlist";
-import Checkout from "./routes/checkout/Checkout";
+import Navigation from "./routes/navigation/Navigation.tsx";
+import Home from "./routes/home/Home.tsx";
+import Catalogue from "./routes/catalogue/Catalogue.tsx";
+import Authentication from "./routes/authentication/Authentication.tsx";
+import Wishlist from "./routes/wishlist/Wishlist.tsx";
+import Checkout from "./routes/checkout/Checkout.tsx";
 import { checkUserSession } from "./store/user/userAction.ts";
 
 function App() {
