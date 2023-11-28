@@ -71,7 +71,7 @@ const NavLinks:React.FC<{ setIsNavExtended: Function; setBurgerClass: Function }
         </NavLink>
 
         {currentUser ? (
-          <NavLink as="span" onClick={signOutUser} linkType={"text"}>
+          <NavLink to="/account" onClick={signOutUser} linkType={"text"}>
             SIGN OUT
           </NavLink>
         ) : (

@@ -52,7 +52,7 @@ function ExtendedNav({ toggleNav }) {
       </ExtendedNavLink>
 
       {currentUser ? (
-        <ExtendedNavLink as="span" onClick={signOutUser} role="parent">
+        <ExtendedNavLink to="/account" onClick={signOutUser} role="parent">
           SIGN OUT
         </ExtendedNavLink>
       ) : (
