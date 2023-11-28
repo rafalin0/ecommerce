@@ -4,29 +4,25 @@ import { useNavigate } from "react-router-dom";
 
 import {
   selectIsCartOpen,
-  selectCartItems,
   selectCartCount,
   selectCartTotal,
 } from "../../store/cart/cartSelector.ts";
 import { setIsCartOpen } from "../../store/cart/cartAction.ts";
 
 import Button from "../button/Button.tsx";
-import CartedItem from "../carted-item/CartedItem.tsx";
+import CartedItems from "../carted-items/CartedItems.tsx";
 
 import {
   ShoppingCartContainer,
   CloseIcon,
   ShoppingCartHeader,
-  EmptyMessage,
   ShoppingCartFooter,
-  ShoppingCartItems,
 } from "./ShoppingCartStyled.tsx";
 
-function ShoppingCart() {
+const ShoppingCart = () => {
   const dispatch = useDispatch();
   const isCartOpen = useSelector(selectIsCartOpen);
   const cartCount = useSelector(selectCartCount);
-  const cartItems = useSelector(selectCartItems);
   const cartTotal = useSelector(selectCartTotal);
 
   const toggleIsCartOpen = () => {
@@ -47,16 +43,9 @@ function ShoppingCart() {
         <p>{cartCount} items</p>
         <CloseIcon className="close-icon" onClick={toggleIsCartOpen} />
       </ShoppingCartHeader>
-      <ShoppingCartItems>
-        {cartItems.length ? (
-          cartItems.map((cartItem) => (
-            <CartedItem key={cartItem.id} cartItem={cartItem} />
-          ))
-        ) : (
-          <EmptyMessage>Your shopping bag is empty.</EmptyMessage>
-        )}
-      </ShoppingCartItems>
-
+     
+      <CartedItems />
+      
       <ShoppingCartFooter>
         <h3>Total</h3>
         <h3>₱ {cartTotal}</h3>

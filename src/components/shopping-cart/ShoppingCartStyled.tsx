@@ -45,15 +45,6 @@ export const ShoppingCartHeader = styled.div`
   }
 `;
 
-export const EmptyMessage = styled.span`
-  margin: auto;
-  text-align: center;
-  justify-self: center;
-  color: #898989;
-  font-size: 1.5rem;
-  line-height: 2rem;
-`;
-
 export const ShoppingCartFooter = styled.div`
   border-top: 1px solid #3d2f3d;
   position: sticky;
@@ -66,13 +57,4 @@ export const ShoppingCartFooter = styled.div`
   ${PrimaryButton}, ${GoogleButton}, ${InvertedButton} {
     min-width: 100%;
   }
-`;
-
-export const ShoppingCartItems = styled.div`
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-start;
-  overflow-y: auto;
-  row-gap: 0.5rem;
 `;
