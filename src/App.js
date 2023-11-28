@@ -1,16 +1,22 @@
 import { Routes, Route } from "react-router-dom";
-import { useEffect } from "react";
+import { useEffect, lazy, Suspense } from "react";
 import { useDispatch } from "react-redux";
 
 import { GlobalStyles } from "./styles/Global";
 
-import Navigation from "./routes/navigation/Navigation.tsx";
-import Home from "./routes/home/Home.tsx";
-import Catalogue from "./routes/catalogue/Catalogue.tsx";
-import Authentication from "./routes/authentication/Authentication.tsx";
-import Wishlist from "./routes/wishlist/Wishlist.tsx";
-import Checkout from "./routes/checkout/Checkout.tsx";
+import Spinner from "./components/spinner/Spinner.tsx";
+import ScrollToTop from "./components/scroll-to-top/ScrollToTop.tsx";
+
 import { checkUserSession } from "./store/user/userAction.ts";
+
+const Navigation = lazy(() => import("./routes/navigation/Navigation.tsx"));
+const Home = lazy(() => import("./routes/home/Home.tsx"));
+const Catalogue = lazy(() => import("./routes/catalogue/Catalogue.tsx"));
+const Authentication = lazy(() =>
+  import("./routes/authentication/Authentication.tsx")
+);
+const Wishlist = lazy(() => import("./routes/wishlist/Wishlist.tsx"));
+const Checkout = lazy(() => import("./routes/checkout/Checkout.tsx"));
 
 function App() {
   const dispatch = useDispatch();
@@ -20,8 +26,9 @@ function App() {
   }, [dispatch]);
 
   return (
-    <>
+    <Suspense fallback={<Spinner />}>
       <GlobalStyles />
+      <ScrollToTop />
       <Routes>
         <Route path="/" element={<Navigation />}>
           <Route index element={<Home />} />
@@ -31,7 +38,7 @@ function App() {
           <Route path="checkout" element={<Checkout />} />
         </Route>
       </Routes>
-    </>
+    </Suspense>
   );
 }
 
