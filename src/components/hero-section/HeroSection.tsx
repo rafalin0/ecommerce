@@ -5,7 +5,7 @@ import {
   AnnouncementContainer,
 } from "./HeroSectionStyled.tsx";
 
-function HeroSection() {
+const HeroSection: React.FC<{ handleClick: () => void }> = ({ handleClick }) => {
   return (
     <HeroSectionContainer>
       <AnnouncementContainer>
@@ -22,7 +22,7 @@ function HeroSection() {
           each piece of exquisite jewelry.
         </p>
 
-        <Button buttonType="inverted">Shop now</Button>
+        <Button onClick={handleClick} buttonType="inverted">Shop now</Button>
       </AnnouncementContainer>
     </HeroSectionContainer>
   );
