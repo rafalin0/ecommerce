@@ -38,6 +38,7 @@ const CartedItem: React.FC<CartedItemProps> = ({ cartItem }) => {
   };
 
   const updateQuantity = () => {
+    if (qty == 0) setQty(1);
     dispatch(editItemQuantity(cartItems, cartItem, qty));
   };
 
