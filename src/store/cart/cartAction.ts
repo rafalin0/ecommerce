@@ -22,6 +22,16 @@ const addCartItem = (cartItems: CartItem[], productToAdd: CategoryItem): CartIte
   return [...cartItems, { ...productToAdd, quantity: 1 }];
 };
 
+const editCartItemQuantity = (cartItems: CartItem[], productToEdit: CategoryItem, qty: number): CartItem[] => {
+  if(qty < 1) qty = 1
+  // return back cart items with matching cart item with updated quantity
+  return cartItems.map((cartItem) => 
+    cartItem.id === productToEdit.id
+      ? { ...cartItem, quantity: qty }
+      : cartItem
+  );
+}
+
 const removeCartItem = (cartItems: CartItem[], cartItemToRemove: CartItem): CartItem[] => {
   // return back cart items with matching cart item with reduced quantity
   return cartItems.map((cartItem) =>
@@ -50,6 +60,11 @@ export const addItemToCart = (cartItems: CartItem[], productToAdd: CategoryItem)
   const newCartItems = addCartItem(cartItems, productToAdd);
   return setCartItems(newCartItems);
 };
+
+export const editItemQuantity = (cartItems: CartItem[], productToEdit: CategoryItem, qty: number): SetCartItems => {
+  const newCartItems = editCartItemQuantity(cartItems, productToEdit, qty);
+  return setCartItems(newCartItems);
+}
 
 export const removeItemFromCart = (cartItems: CartItem[], cartItemToRemove: CartItem): SetCartItems => {
   const newCartItems = removeCartItem(cartItems, cartItemToRemove);
