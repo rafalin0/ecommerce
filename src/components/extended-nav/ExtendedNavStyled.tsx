@@ -21,10 +21,17 @@ export const ExtendedNavLink = styled(Link)`
   text-transform: uppercase;
   font-size: 1.3rem;
   color: #393939;
-  display: inline-block;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 80%; 
 
   ${(props) => props.role === "parent" && parentDirectory}
   ${(props) => props.role === "lastChild" && lastChild}
+
+  span:last-child {
+  color: #ff8181;
+}
 `;
 
 export const ExtendedNavContainer = styled.div`

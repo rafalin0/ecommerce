@@ -2,7 +2,8 @@ import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { selectCurrentUser } from "../../store/user/userSelector.ts";
-import { selectIsCartOpen } from "../../store/cart/cartSelector.ts";
+import { selectIsCartOpen, selectCartCount } from "../../store/cart/cartSelector.ts";
+import { selectWishlistItems } from "../../store/wishlist/wishlistSelector.ts";
 import { setIsCartOpen } from "../../store/cart/cartAction.ts";
 import { signOutStart } from "../../store/user/userAction.ts";
 
@@ -12,6 +13,8 @@ function ExtendedNav({ toggleNav }) {
   const dispatch = useDispatch();
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
+  const cartCount = useSelector(selectCartCount);
+  const wishlistItems = useSelector(selectWishlistItems);
 
   const navigationItems = [
     { label: "catalogue", path: "/catalogue", role: "parent" },
@@ -23,7 +26,6 @@ function ExtendedNav({ toggleNav }) {
     { label: "earrings", path: "/catalogue/earrings" },
     { label: "rings", path: "/catalogue/rings" },
     { label: "bracelets", path: "/catalogue/bracelets", role: "lastChild" },
-    { label: "wishlist", path: "/wishlist", role: "parent" },
   ];
 
   // hide or show shopping cart
@@ -47,8 +49,14 @@ function ExtendedNav({ toggleNav }) {
         </ExtendedNavLink>
       ))}
 
-      <ExtendedNavLink onClick={toggleIsCartOpen} role="parent">
-        cart
+      <ExtendedNavLink to="/wishlist" onClick={toggleNav} role="parent">
+        <span>wishlist</span>
+        <span>{wishlistItems.length}</span>
+      </ExtendedNavLink>
+
+      <ExtendedNavLink onClick={toggleIsCartOpen} as="p" role="parent">
+        <span>cart</span>
+        <span>{cartCount}</span>
       </ExtendedNavLink>
 
       {currentUser ? (
