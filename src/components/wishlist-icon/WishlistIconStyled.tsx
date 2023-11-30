@@ -1,13 +1,12 @@
 import styled from "styled-components";
-import { LiaShoppingBagSolid as ShoppingBag } from "react-icons/lia";
+import { BsSuitHeart as HeartIcon } from "react-icons/bs";
 
-export const ShoppingIcon = styled(ShoppingBag)`
-  font-size: 1.3em;
+export const Wishlist = styled(HeartIcon)`
+  font-size: 1em;
   color: rgb(28, 28, 17);
-  padding-bottom: 4px;
 `;
 
-export const CartIconContainer = styled.div`
+export const WishlistIconContainer = styled.div`
   position: relative;
   display: flex;
   align-items: center;
@@ -16,7 +15,7 @@ export const CartIconContainer = styled.div`
   width: 50px;
 `;
 
-export const CartCount = styled.span`
+export const WishlistCount = styled.span`
   position: absolute;
   left: 1.2rem;
   bottom: 0.7rem;

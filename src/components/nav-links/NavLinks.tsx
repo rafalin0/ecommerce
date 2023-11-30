@@ -8,6 +8,7 @@ import { signOutStart } from "../../store/user/userAction.ts";
 
 import { ReactComponent as Logo } from "../../assets/BIO-Logo.svg";
 import CartIcon from "../../components/cart-icon/CartIcon.tsx";
+import WishlistIcon from "../wishlist-icon/WishlistIcon.tsx";
 
 import {
   LinksContainer,
@@ -16,7 +17,6 @@ import {
   LeftLinks,
   RightLinks,
   AccountIcon,
-  WishlistIcon,
 } from "./NavLinksStyled.tsx";
 import DropdownMenu from "../dropdown-menu/DropdownMenu.tsx";
 

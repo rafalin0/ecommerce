@@ -2,7 +2,6 @@ import styled, { css } from "styled-components";
 import { Link } from "react-router-dom";
 
 import { BsPerson as PersonIcon } from "react-icons/bs";
-import { BsSuitHeart as HeartIcon } from "react-icons/bs";
 
 import { devices } from "../../styles/Breakpoints";
 
@@ -35,10 +34,6 @@ const navLinkIcon = css`
   &:hover {
     background-color: #ff808134;
   }
-`;
-
-export const WishlistIcon = styled(HeartIcon)`
-  font-size: 1rem;
 `;
 
 export const AccountIcon = styled(PersonIcon)`
