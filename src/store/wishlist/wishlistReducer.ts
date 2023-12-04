@@ -2,10 +2,10 @@ import { AnyAction } from "redux";
 
 import {setWishlistItems} from "./wishlistAction.ts"
 
-import { CategoryItem } from "../categories/categoryTypes";
+import { WishlistItem } from "./wishlistTypes.ts";
 
 export type WishlistState = {
- readonly  wishlistItems: CategoryItem[];
+ readonly  wishlistItems: WishlistItem[];
 }
 
 export const WISHLIST_INITIAL_STATE = {
