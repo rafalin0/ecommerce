@@ -1,5 +1,5 @@
 import React from "react";
-import Button from "../button/Button.tsx";
+import Button, { BUTTON_TYPE_CLASSES } from "../button/Button.tsx";
 import {
   HeroSectionContainer,
   AnnouncementContainer,
@@ -16,13 +16,10 @@ const HeroSection: React.FC<{ handleClick: () => void }> = ({ handleClick }) => 
 
         <p>dainty, elegant, timeless</p>
         <p>
-          emphasizing women's elegance and independent and confident attitude
-          towards life, integrating women's energy into the design concept,
-          complemented by the craftsmen's exquisite craftsmanship, to achieve
-          each piece of exquisite jewelry.
+          Celebrate the sophistication of women, their independence, and the confident allure they bring to life. Infuse your style with the vibrant energy of women, expertly captured in every meticulously crafted piece of exquisite jewelry. Elevate your elegance with our stunning collection!
         </p>
 
-        <Button onClick={handleClick} buttonType="inverted">Shop now</Button>
+        <Button onClick={handleClick} buttonType={BUTTON_TYPE_CLASSES.inverted}>Shop now</Button>
       </AnnouncementContainer>
     </HeroSectionContainer>
   );
