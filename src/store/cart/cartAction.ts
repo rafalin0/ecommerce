@@ -23,7 +23,8 @@ const addCartItem = (cartItems: CartItem[], productToAdd: CategoryItem): CartIte
 };
 
 const editCartItemQuantity = (cartItems: CartItem[], productToEdit: CategoryItem, qty: number): CartItem[] => {
-  if(qty < 1) qty = 1
+  if (qty < 1) qty = 1
+  if (qty > 50) qty = 50
   // return back cart items with matching cart item with updated quantity
   return cartItems.map((cartItem) => 
     cartItem.id === productToEdit.id
