@@ -5,7 +5,6 @@ import { selectCurrentUser } from "../../store/user/userSelector.ts";
 import { selectIsCartOpen, selectCartCount } from "../../store/cart/cartSelector.ts";
 import { selectWishlistItems } from "../../store/wishlist/wishlistSelector.ts";
 import { setIsCartOpen } from "../../store/cart/cartAction.ts";
-import { signOutStart } from "../../store/user/userAction.ts";
 
 import { ExtendedNavContainer, ExtendedNavLink } from "./ExtendedNavStyled.tsx";
 
@@ -34,8 +33,6 @@ function ExtendedNav({ toggleNav }) {
     toggleNav();
   };
 
-  const signOutUser = () => dispatch(signOutStart());
-
   return (
     <ExtendedNavContainer>
       {navigationItems.map((item, index) => (
@@ -60,8 +57,8 @@ function ExtendedNav({ toggleNav }) {
       </ExtendedNavLink>
 
       {currentUser ? (
-        <ExtendedNavLink to="/account" onClick={signOutUser} role="parent">
-          SIGN OUT
+        <ExtendedNavLink to="/account" onClick={toggleNav} role="parent">
+          ACCOUNT
         </ExtendedNavLink>
       ) : (
         <ExtendedNavLink to="/account" onClick={toggleNav} role="parent">

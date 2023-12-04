@@ -1,10 +1,8 @@
 import { useSelector, useDispatch } from "react-redux";
 import React, { useState } from "react";
 
-import { selectCurrentUser } from "../../store/user/userSelector.ts";
 import { selectIsCartOpen } from "../../store/cart/cartSelector.ts";
 import { setIsCartOpen } from "../../store/cart/cartAction.ts";
-import { signOutStart } from "../../store/user/userAction.ts";
 
 import { ReactComponent as Logo } from "../../assets/BIO-Logo.svg";
 import CartIcon from "../../components/cart-icon/CartIcon.tsx";
@@ -22,7 +20,6 @@ import DropdownMenu from "../dropdown-menu/DropdownMenu.tsx";
 
 const NavLinks:React.FC<{ setIsNavExtended: Function; setBurgerClass: Function }> = ({ setIsNavExtended, setBurgerClass }) => {
   const dispatch = useDispatch();
-  const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen);
   // navbar dropdown menu - categories
   const [showDropdown, setShowDropdown] = useState(false);
@@ -38,7 +35,7 @@ const NavLinks:React.FC<{ setIsNavExtended: Function; setBurgerClass: Function }
     setIsNavExtended(false);
   };
 
-  const signOutUser = () => dispatch(signOutStart());
+
 
   return (
     <LinksContainer>
@@ -62,23 +59,18 @@ const NavLinks:React.FC<{ setIsNavExtended: Function; setBurgerClass: Function }
       </LogoContainer>
 
       <RightLinks onMouseUp={() => setShowDropdown(false)}>
-        <NavLink to="/wishlist">
+        <NavLink to="/wishlist"  linkType="icon">
           <WishlistIcon />
         </NavLink>
 
-        <NavLink onClick={toggleIsCartOpen}>
+        <NavLink as="span" onClick={toggleIsCartOpen} linkType="icon">
           <CartIcon />
         </NavLink>
 
-        {currentUser ? (
-          <NavLink to="/account" onClick={signOutUser} linkType={"text"}>
-            SIGN OUT
-          </NavLink>
-        ) : (
-          <NavLink to="/account">
-            <AccountIcon />
-          </NavLink>
-        )}
+        <NavLink to="/account"  linkType="icon">
+          <AccountIcon />
+        </NavLink>
+        
       </RightLinks>
     </LinksContainer>
   );

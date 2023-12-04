@@ -147,9 +147,9 @@ export const ActionContainer = styled.div`
   width: 80%;
   display: flex;
   flex-direction: column;
+  align-items: last baseline;
   grid-template-columns: 1fr 1fr;
-  align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
   background-color: #ffffff;
   border-top-right-radius: 1rem;
   border-top-left-radius: 1rem;

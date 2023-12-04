@@ -8,6 +8,7 @@ import { selectWishlistItems
 
 import { addItemToCart, setIsCartOpen } from "../../store/cart/cartAction.ts";
 import { updateWishlist } from "../../store/wishlist/wishlistAction.ts";
+import { signOutStart } from "../../store/user/userAction.ts";
 
 import {
   SignInSuccessContainer,
@@ -22,6 +23,7 @@ import {
   GoToWishlist,
   } from "./SignInSuccessStyled.tsx";
 import { Banner, PageTitle } from "../../styles/Global.jsx";
+import Button, {BUTTON_TYPE_CLASSES} from "../../components/button/Button.tsx";
 
 const SignInSuccess = () => {
   const dispatch = useDispatch();
@@ -33,6 +35,8 @@ const SignInSuccess = () => {
   const fullName = currentUser?.displayName;
   const firstName = fullName?.split(' ')[0];
   const [shouldMoveToCart, setShouldMoveToCart] = useState(false);
+
+  const signOutUser = () => dispatch(signOutStart());
 
   const toggleIsCartOpen = () => {
     dispatch(setIsCartOpen(!isCartOpen));
@@ -96,6 +100,7 @@ const confirmMoveToCart = () => {
               <Action to="/#directory"><ShopMoreIcon/><p>Continue Shopping</p></Action>
           </ActionContainer>
         </CardContainer>
+        <Button onClick={signOutUser} >Sign Out</Button>
       </SignInSuccessContainer>
       </>
   )
