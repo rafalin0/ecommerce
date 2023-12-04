@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { BsSuitHeart as HeartIcon } from "react-icons/bs";
 
 export const Wishlist = styled(HeartIcon)`
-  font-size: 1em;
+  font-size: 0.95em;
   color: rgb(28, 28, 17);
 `;
 

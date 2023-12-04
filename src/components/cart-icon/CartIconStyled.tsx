@@ -2,7 +2,7 @@ import styled from "styled-components";
 import { LiaShoppingBagSolid as ShoppingBag } from "react-icons/lia";
 
 export const ShoppingIcon = styled(ShoppingBag)`
-  font-size: 1.3em;
+  font-size: 1.25em;
   color: rgb(28, 28, 17);
   padding-bottom: 4px;
 `;

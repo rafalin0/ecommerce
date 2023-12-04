@@ -33,11 +33,11 @@ export const ProductImage = styled.div`
   width: 100%;
   height: 100%;
   background: no-repeat center/cover;
-  border-radius: 4px 0 0 4px;
+  border-radius: 2rem 0 0 2rem;
   position: relative;
 
   @media ${devices.tablet} {
-    border-radius: 4px 4px 0 0;
+    border-radius: 2rem 2rem 0 0;
     position: absolute;
     top: 0;
     height: 85%;
@@ -49,10 +49,10 @@ export const Body = styled.div`
   color: #393939;
   width: 100%;
   height: 100%;
-  font-size: 0.85rem;
+  font-size: 0.75rem;
   padding: 0.5em;
 
-  border-radius: 0 5px 5px 0;
+  border-radius: 0 2rem 2rem 0;
   display: grid;
   grid-area: 1 / 1 / 3 / 3;
 
@@ -64,7 +64,7 @@ export const Body = styled.div`
   }
 
   ${PrimaryButton}, ${GoogleButton}, ${InvertedButton} {
-    margin-top: 0.5em;
+    margin-top: 1em;
     width: 100%;
     height: 1rem;
     background-color: rgba(117, 150, 184, 1);
@@ -86,7 +86,8 @@ export const Body = styled.div`
     position: absolute;
     z-index: 10;
     bottom: 0;
-    border-radius: 0 0 5px 5px;
+    border-radius: 0 0 2rem 2rem;
+    font-size: 0.85rem;
     & > span:first-child {
       width: 75%;
     }
@@ -113,9 +114,8 @@ export const ProductCardContainer = styled.div`
 
   position: relative;
   background-color: #ffffff;
-  border-radius: 5px;
-  border: 1px solid lightgray;
-  box-shadow: 0 4px 4px 4px rgba(99, 76, 99, 0.058);
+  border-radius: 2rem;
+  box-shadow: 0 4px 4px 4px rgba(99, 76, 99, 0.1);
   cursor: pointer;
 
   @media ${devices.tablet} {

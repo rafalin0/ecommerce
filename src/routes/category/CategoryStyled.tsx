@@ -5,7 +5,7 @@ export const CategoryItemsContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   justify-content: center;
-  gap: 10px;
+  gap: 1rem;
   margin: 0;
 
   & > * {
