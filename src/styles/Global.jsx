@@ -68,10 +68,10 @@ export const Container = styled.div`
 export const PageContainer = styled.div`
   min-height: calc(100vh - 5.8rem);
   @media ${devices.mobileL} {
-    min-height: calc(100vh - 11rem);
+    min-height: calc(100vh - 13rem);
   }
   @media ${devices.laptop} {
-    min-height: calc(100vh - 12rem);
+    min-height: calc(100vh - 14rem);
   }
 `;
 

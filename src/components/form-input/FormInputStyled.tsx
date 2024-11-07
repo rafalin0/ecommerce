@@ -19,7 +19,7 @@ export const FormInputLabel = styled.label<FormInputLabelProps>`
   font-weight: normal;
   position: absolute;
   pointer-events: none;
-  left: 5px;
+  left: 1rem;
   top: 10px;
   transition: 300ms ease all;
 
@@ -31,11 +31,11 @@ export const Input = styled.input`
   background-color: white;
   color: ${subColor};
   font-size: 18px;
-  padding: 10px 10px 10px 5px;
+  padding: 0.6rem 1rem;
   display: block;
   width: 100%;
   border: none;
-  border-radius: 0;
+  border-radius: 2rem;
   border-bottom: 1px solid ${subColor};
   margin: 25px 0;
 
@@ -50,7 +50,7 @@ export const Input = styled.input`
 
 export const Group = styled.div`
   position: relative;
-  margin: 45px 0;
+  margin: 0;
   input[type="password"] {
     letter-spacing: 0.3em;
   }

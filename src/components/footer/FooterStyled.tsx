@@ -13,6 +13,7 @@ export const FooterContainer = styled.div`
 export const FooterLinksContainer = styled.div`
   display: none;
   @media ${devices.mobileL} {
+    margin-top: 2.5rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
