@@ -19,20 +19,19 @@ const PaymentForm = () => {
   const amount = useSelector(selectCartTotal);
   const currentUser = useSelector(selectCurrentUser);
 
+  const API_URL = process.env.REACT_APP_API_URL;
+
   const handleSubmit = async (event: FormEvent<HTMLFormElement>) => {
-    // We don't want to let default form submission happen here,
-    // which would refresh the page.
     event.preventDefault();
 
     if (!stripe || !elements) {
-      // Stripe.js hasn't yet loaded.
-      // Make sure to disable form submission until Stripe.js has loaded.
+
       return;
     }
 
     setIsProcessingPayment(true);
 
-    const response = await fetch("/.netlify/functions/create-payment-intent", {
+    const response =  await fetch(`${API_URL}/create-payment-intent`, {
       method: "post",
       headers: {
         "Content-Type": "application/json",
@@ -43,8 +42,6 @@ const PaymentForm = () => {
     });
 
     const clientSecret = response.paymentIntent.client_secret;
-
-    console.log("response", clientSecret);
 
     // type guard check
 const cartDetails = elements.getElement(CardElement);

@@ -20,7 +20,8 @@ exports.handler = async (event) => {
 
     return {
       status: 400,
-      body: JSON.stringify({ error }),
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ error: error.message }),
     };
   }
 };
