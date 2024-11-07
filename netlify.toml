@@ -1,0 +1,3 @@
+[build]
+  functions = "netlify/functions"  # Folder where Netlify should look for serverless functions
+  publish = "build"                # Folder where your built site lives (for example, `build` for React apps)
