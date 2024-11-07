@@ -10,6 +10,7 @@ export const AnnouncementContainer = styled.div`
   height: 50%;
   padding: 7% 5%;
   background-color: rgba(248, 241, 244, 0.4);
+  box-shadow: 0 0 5px 8px rgba(255, 255, 255, 0.33);
 
   display: flex;
   flex-direction: column;
@@ -89,6 +90,7 @@ export const HeroSectionContainer = styled.div`
   align-items: flex-end;
 
   @media ${devices.tablet} {
+    background-size: 120%;
     ${AnnouncementContainer} {
       z-index: 10;
       position: absolute;
@@ -101,6 +103,7 @@ export const HeroSectionContainer = styled.div`
       margin-left: 5%;
       max-width: 30%;
       text-align: left;
+      box-shadow: 0 0 #0000;
 
       &:first-child {
         color: #ff8181;

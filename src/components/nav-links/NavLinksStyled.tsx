@@ -40,11 +40,10 @@ export const AccountIcon = styled(PersonIcon)`
   font-size: 1.3em;
 `;
 
-export const LogoContainer = styled(Link)`
+export const LogoContainer = styled.div`
   height: 100%;
-  width: 70%;
-  padding: 0.5rem 0.5rem 1.3rem 0;
-  margin-right: auto;
+  padding: 0.5rem 0.5rem;
+  margin: 0.1rem auto;
   display: flex;
   flex-direction: row;
   justify-content: flex-start;
@@ -53,7 +52,7 @@ export const LogoContainer = styled(Link)`
     margin: auto;
     width: auto;
     justify-content: center;
-    padding: 0.5rem 0.5rem 1.3rem;
+    padding: 0.5rem 0.5rem;
 
     & > * {
       position: relative;
@@ -61,8 +60,6 @@ export const LogoContainer = styled(Link)`
     }
   }
 `;
-
-
 
 export const NavLink = styled(Link) <{linkType: "text" | "icon"}>`
   cursor: pointer;
@@ -106,10 +103,12 @@ export const LinksContainer = styled.div`
   height: 100%;
   margin: 0 auto;
   column-gap: 1rem;
+  display: grid;
+  align-items: start;
+  justify-content: start;
 
   @media ${devices.mobileL} {
-    display: grid;
-    align-items: center;
     grid-template-columns: 1fr 1fr 1fr;
+    align-items: center;
   }
 `;

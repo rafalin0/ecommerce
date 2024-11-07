@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import { selectIsCartOpen } from "../../store/cart/cartSelector.ts";
 import { setIsCartOpen } from "../../store/cart/cartAction.ts";
 
-import { ReactComponent as Logo } from "../../assets/BIO-Logo.svg";
+import HomeButton from "../home-button/HomeButton.tsx"
 import CartIcon from "../../components/cart-icon/CartIcon.tsx";
 import WishlistIcon from "../wishlist-icon/WishlistIcon.tsx";
 
@@ -51,11 +51,10 @@ const NavLinks:React.FC<{ setIsNavExtended: Function; setBurgerClass: Function }
       {showDropdown && <DropdownMenu toggle={setShowDropdown} />}
 
       <LogoContainer
-        to="/"
         onMouseUp={() => setShowDropdown(false)}
         onClick={closeNav}
       >
-        <Logo className="logo" />
+        <HomeButton />
       </LogoContainer>
 
       <RightLinks onMouseUp={() => setShowDropdown(false)}>
