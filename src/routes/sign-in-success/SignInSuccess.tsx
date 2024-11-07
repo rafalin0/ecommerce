@@ -1,4 +1,4 @@
-import React, {useEffect, useState} from "react";
+import React, {useCallback, useEffect, useState} from "react";
 import { useSelector, useDispatch } from "react-redux";
 
 import { selectCurrentUser } from "../../store/user/userSelector.ts";
@@ -13,17 +13,17 @@ import { signOutStart } from "../../store/user/userAction.ts";
 import {
   SignInSuccessContainer,
   CardContainer,
-  Count,
   CountContainer,
   ActionContainer,
-  Action,
   CheckoutIcon,
   OpenCartIcon,
   ShopMoreIcon,
   GoToWishlist,
   } from "./SignInSuccessStyled.tsx";
-import { Banner, PageTitle } from "../../styles/Global.jsx";
-import Button, {BUTTON_TYPE_CLASSES} from "../../components/button/Button.tsx";
+import { Banner, PageContainer, PageTitle, StyledTextLink } from "../../styles/Global.jsx";
+import Button from "../../components/button/Button.tsx";
+import { Link } from "react-router-dom";
+import { AccentButton, InvertedAccentButton } from "../../components/button/ButtonStyled.tsx";
 
 const SignInSuccess = () => {
   const dispatch = useDispatch();
@@ -34,6 +34,7 @@ const SignInSuccess = () => {
   const currentUser = useSelector(selectCurrentUser);
   const fullName = currentUser?.displayName;
   const firstName = fullName?.split(' ')[0];
+
   const [shouldMoveToCart, setShouldMoveToCart] = useState(false);
 
   const signOutUser = () => dispatch(signOutStart());
@@ -52,57 +53,112 @@ const confirmMoveToCart = () => {
     } 
   };  
 
-  const moveToCart = () => {
-    wishlistItems.map((wishlistItem) => {
+ const moveToCart = useCallback(() => {
+    wishlistItems.forEach((wishlistItem) => {
       const { status, ...rest } = wishlistItem;
       const product = rest;
       dispatch(addItemToCart(cartItems, product));
       dispatch(updateWishlist(wishlistItems, wishlistItem));
       setShouldMoveToCart(true);
     });
+  }, [wishlistItems, cartItems, dispatch]); 
+
+useEffect(() => {
+  if (shouldMoveToCart) {
+    moveToCart();
   }
+}, [shouldMoveToCart, moveToCart]);
 
-  useEffect(() => {
-    if (shouldMoveToCart) {
-      moveToCart();
-    }
-  }, [wishlistItems.length]);
 
-  
   return (
-    <>
+    <PageContainer>
       <Banner>
         <PageTitle>Hi{ ", " + firstName }!</PageTitle>
       </Banner>
       <SignInSuccessContainer>
-        <CardContainer>
-          <CountContainer>
-            <p>You have</p>
-            <Count>{ cartCount }</Count>
-            <p>items in your cart</p>
-          </CountContainer>
-          <ActionContainer>
-              <Action to="/checkout"><CheckoutIcon/><p>Go to Checkout</p></Action>
-              <Action as="div" onClick={toggleIsCartOpen}><OpenCartIcon/><p>Open Cart</p></Action>
-              <Action to="/#directory"><ShopMoreIcon/><p>Continue Shopping</p></Action>
-          </ActionContainer>
-        </CardContainer>
+        
+        {cartCount === 0 && (
+          <CardContainer>
+            <CountContainer>
+              <p>Your cart is empty</p>
+              <StyledTextLink to="/#directory">Browse Products</StyledTextLink>
+            </CountContainer>
+          </CardContainer>
+          )}
+
+        {cartCount > 0 && (
+          <CardContainer>
+
+            <CountContainer>
+              <p>You have <span>{cartCount} {cartCount > 1 ? "items" : "item"}</span> in your cart</p>
+            </CountContainer>
+
+            <ActionContainer>
+              <Link to="/checkout">
+                <AccentButton>                
+                  <CheckoutIcon />
+                  <p>Go to Checkout</p>               
+                </AccentButton>
+              </Link>
+                
+              <AccentButton onClick={toggleIsCartOpen}> 
+                <OpenCartIcon />
+                <p>Open Cart</p>
+              </AccentButton>
+
+              <Link to="/#directory">
+                <InvertedAccentButton>
+                <ShopMoreIcon />
+                  <p>Continue Shopping</p>
+                  </InvertedAccentButton>
+              </Link>
+            </ActionContainer>
+
+          </CardContainer>
+        )}
+
+        {wishlistItems.length === 0 && (
+          <CardContainer>
+            <CountContainer>
+              <p>Your wishlist is empty</p>
+              <StyledTextLink to="/#directory">Browse Products</StyledTextLink>
+            </CountContainer>
+          </CardContainer>
+        )}
+
+        {wishlistItems.length > 0 && (
+          <CardContainer>
+            <CountContainer>
+              <p>You have <span>{wishlistItems.length} {wishlistItems.length > 1 ? "items" : "item"}</span> in your wishlist</p>
+            </CountContainer>
+            <ActionContainer>
+        
+              <AccentButton onClick={confirmMoveToCart}> 
+                <ShopMoreIcon />
+                <p>Move all to Cart</p>
+              </AccentButton>
+
+              <Link to="/wishlist">
+                <AccentButton>                
+                  <GoToWishlist />
+                  <p>Go to Wishlist</p>               
+                </AccentButton>
+              </Link>
+                
+
+              <Link to="/#directory">
+                <InvertedAccentButton>
+                <ShopMoreIcon />
+                  <p>Continue Shopping</p>
+                  </InvertedAccentButton>
+              </Link>
+            </ActionContainer>
+          </CardContainer>
+        )}
       
-      <CardContainer>
-          <CountContainer>
-            <p>You have</p>
-            <Count>{ wishlistItems.length }</Count>
-            <p>items in your wishlist</p>
-          </CountContainer>
-          <ActionContainer>
-            <Action as="div" onClick={confirmMoveToCart}><ShopMoreIcon/><p>Move all to Cart</p></Action>
-              <Action to="/wishlist" ><GoToWishlist/><p>Go to Wishlist</p></Action>
-              <Action to="/#directory"><ShopMoreIcon/><p>Continue Shopping</p></Action>
-          </ActionContainer>
-        </CardContainer>
         <Button onClick={signOutUser} >Sign Out</Button>
       </SignInSuccessContainer>
-      </>
+      </PageContainer>
   )
 }
 

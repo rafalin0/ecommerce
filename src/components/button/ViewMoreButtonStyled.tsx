@@ -18,6 +18,12 @@ export const ExpandingButton = styled.div`
   align-items: center;
   padding-bottom: 2%;
 
+  transition: background-color 0.3s ease-in-out;
+
+  &:hover {
+    background-color: #FE9F9F;
+  }
+
   @media ${devices.mobileL} {
     border-radius: 2rem;
     border: 1px solid #393939;

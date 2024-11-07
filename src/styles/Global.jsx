@@ -1,5 +1,6 @@
 import styled, { createGlobalStyle } from "styled-components";
 import { devices } from "./Breakpoints";
+import { Link } from "react-router-dom";
 
 export const GlobalStyles = createGlobalStyle`
 html {
@@ -62,4 +63,25 @@ export const Container = styled.div`
   flex-flow: row wrap;
   justify-content: space-between;
   gap: 10px;
+`;
+
+export const PageContainer = styled.div`
+  min-height: calc(100vh - 5.8rem);
+  @media ${devices.mobileL} {
+    min-height: calc(100vh - 11rem);
+  }
+  @media ${devices.laptop} {
+    min-height: calc(100vh - 12rem);
+  }
+`;
+
+export const StyledTextLink = styled(Link)`
+  color: #ff8181;
+  font-weight: 600;
+  text-decoration: underline;
+  cursor: pointer;
+
+  &:hover {
+    color: rgb(117, 150, 184);
+  }
 `;
