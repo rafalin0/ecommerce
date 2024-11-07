@@ -6,6 +6,7 @@ import { GlobalStyles } from "./styles/Global";
 
 import Spinner from "./components/spinner/Spinner.tsx";
 import ScrollToTop from "./components/scroll-to-top/ScrollToTop.tsx";
+import Footer from "./components/footer/Footer.tsx";
 
 import { checkUserSession } from "./store/user/userAction.ts";
 import { selectCurrentUser } from "./store/user/userSelector.ts";
@@ -46,6 +47,7 @@ function App() {
           <Route path="checkout" element={<Checkout />} />
         </Route>
       </Routes>
+      <Footer />
     </Suspense>
   );
 }
