@@ -105,7 +105,7 @@ git clone https://github.com/rafalin0/ecommerce.git
 cd ecommerce
 ```
 
-## **Installation**
+### **Installation**
 
 Install the project dependencies using npm:
 
@@ -113,7 +113,7 @@ Install the project dependencies using npm:
 npm install
 ```
 
-## **Set Up Environment Variables**
+### **Set Up Environment Variables**
 
 Create a new file named `.env.local` in the root of your project and add the following content:
 
@@ -135,9 +135,7 @@ REACT_APP_API_URL=http://localhost:8888/.netlify/functions
 
 Replace the placeholder values with your actual Firebase and Stripe credentials. You can obtain these credentials by signing up & creating a new project on [Firebase](https://firebase.google.com/) and [Stripe website](https://stripe.com/).
 
-Navigate to the project settings gear icon > project settings and scroll down to the config code. Copy the object in the code and replace the variable in your cloned code.
-
-## **Running the Project**
+### **Running the Project**
 
 ```bash
 netlify dev
