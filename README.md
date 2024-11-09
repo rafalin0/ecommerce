@@ -1,70 +1,174 @@
-# Getting Started with Create React App
+|
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+<div align="center" >
+  <br />
+    <a href="https://bling-it-on.netlify.app/s" >
+    <img src="https://i.ibb.co/gD10rPb/Homepage.png" alt="Homepage" width="35%" border="0">
+    </a>
+  <div>
+    <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
+    <img src="https://img.shields.io/badge/-TypeScript-black?style=for-the-badge&logoColor=white&logo=typescript&color=3178C6" alt="typescript" />
+    <img src="https://img.shields.io/badge/-Styled--Components-black?style=for-the-badge&logo=styled-components&logoColor=FFFFFF&color=DB7093" alt="Styled-Components" />
+    <br />
+    <img src="https://img.shields.io/badge/-Firestore-black?style=for-the-badge&logo=firebase&logoColor=FFCA28&color=DD2C00" alt="Firestore" />
+    <img src="https://img.shields.io/badge/-Redux-black?style=for-the-badge&logo=redux&logoColor=FFFFFF&color=764ABC" alt="Redux" />
+    <img src="https://img.shields.io/badge/-Stripe-black?style=for-the-badge&logo=stripe&logoColor=FFFFFF&color=635BFF" alt="Stripe" />
+    <img src="https://img.shields.io/badge/-Netlify-black?style=for-the-badge&logo=netlify&logoColor=FFFFFF&color=00C7B7" alt="Netlify" />
 
-## Available Scripts
 
-In the project directory, you can run:
 
-### `npm start`
+  </div>
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+  <h3 align="center">Bling It On - Ecommerce Web App</h3>
+</div>
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+## 📋 <a name="table">Table of Contents</a>
 
-### `npm test`
+1. 💎 [Introduction](#introduction)
+2. 📋 [Features](#features)
+3. ⚙️ [Tech Stack](#tech-stack)
+4. 🤸 [Quick Start](#quick-start)
+5. 🚀 [Usage / How It Works](#usage)
+6. 📸 [Screenshots](#screenshots)
+7. 🙏[Acknowledgments](#awknowlegements) 
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
 
-### `npm run build`
+## <a name="introduction">💎 Introduction</a>
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**Bling It On** is a refined ecommerce platform for exquisite jewelry, catering to individuals looking to add a touch of elegance to their style. With a carefully curated selection of bracelets, rings, earrings, necklaces, and jewelry sets, this store offers a seamless shopping experience that combines luxury with accessibility.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+## <a name="features">📋 Features</a>
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+1. **Home Page with Highlighted Collections:**  
+  The homepage features curated collections that create an inviting first impression. High-quality visuals and a call to action encourage customers to explore and discover products.
 
-### `npm run eject`
+2. **Organized Product Catalog:**
+  Browse jewelry items by category, including "Bracelets," "Earrings," "Jewelry Sets," "Necklaces," and "Rings." Each category page provides detailed product information, images, and options to add items to your wishlist or cart, as well as the ability to remove items from wishlist.
 
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
+3. **Wishlist Functionality:**  
+  Customers can save their favorite items to revisit later, compare products, or add them to the cart with ease.
 
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+4. **Shopping Cart**  
+    The intuitive cart design displays products with their quantities, prices, and total cost. Customers can adjust quantities or remove items as needed, and then proceed to checkout.
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
+5. **Order Summary & Checkout:**
+  An order summary is displayed alongside the payment form for a final review. The checkout process includes secure payment via credit card for a seamless transaction
 
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
+6. **User Account & Authentication:**
+   Customers can securely log in or sign up to create accounts. The total number of items in the cart and wishlist is displayed, along with quick access actions such as proceeding to checkout, opening the cart, moving all wishlist items to the cart, browsing the product catalog, or signing out.
 
-## Learn More
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+## <a name="tech-stack">⚙️ Tech Stack</a>
 
-### Code Splitting
+### 🎨 Frontend
+-   **React**: Core library for building the user interface _(react, react-dom)_.  
+-   **React Router**: Client-side routing library to handle navigation _(react-router-dom)_.  
+-   **Redux**: State management library for predictable state updates _(redux, react-redux)_.  
+-   **Redux Saga**: Middleware for handling side effects like asynchronous actions in Redux _(redux-saga)_.  
+-   **Reselect**: Selector library for efficient state access in Redux _(reselect)_.  
+-   **TypeScript**: Superset of JavaScript for type safety _(typescript)_.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
 
-### Analyzing the Bundle Size
+### 💅 Styling
+-  **Styled-Components**: Library for styling components with CSS-in-JS _(styled-components, @types/styled-components)_.
+-  **Sass**: CSS preprocessor for more efficient and organized styling _(sass)_.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
+### 💳 Payment Integration
+-  **Stripe**: Payment processing library with React and JavaScript SDKs for secure payment integration _(@stripe/react-stripe-js, @stripe/stripe-js, stripe)_.
 
-### Making a Progressive Web App
+### 🔥 Firebase
+-  **Firebase**: Backend-as-a-Service for authentication, database, and other backend services _(firebase)_.
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
+### 🌐 Deployment
+- **Netlify**: Deployment platform for frontend hosting and serverless functions.
 
-### Advanced Configuration
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
 
-### Deployment
+## <a name="quick-start">🤸 Quick Start</a>
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
+Follow these steps to set up the project locally on your machine.
 
-### `npm run build` fails to minify
+### **Prerequisites**
 
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Make sure you have the following installed on your machine:
+
+- [Git](https://git-scm.com/)
+- [Node.js](https://nodejs.org/en)
+- [npm](https://www.npmjs.com/) (Node Package Manager)
+
+
+### **Cloning the Repository**
+
+```bash
+git clone https://github.com/rafalin0/ecommerce.git
+cd ecommerce
+```
+
+## **Installation**
+
+Install the project dependencies using npm:
+
+```bash
+npm install
+```
+
+## **Set Up Environment Variables**
+
+Create a new file named `.env.local` in the root of your project and add the following content:
+
+```env
+REACT_APP_FIREBASE_API_KEY=
+REACT_APP_FIREBASE_AUTH_DOMAIN=
+REACT_APP_FIREBASE_PROJECT_ID=
+REACT_APP_FIREBASE_STORAGE_BUCKET=
+REACT_APP_FIREBASE_MESSAGING_SENDER_ID=
+REACT_APP_FIREBASE_APP_ID=
+REACT_APP_FIREBASE_MEASUREMENT_ID=
+
+REACT_APP_STRIPE_PUBLISHABLE_KEY=
+STRIPE_SECRET_KEY=
+
+REACT_APP_API_URL=http://localhost:8888/.netlify/functions
+
+```
+
+Replace the placeholder values with your actual Firebase and Stripe credentials. You can obtain these credentials by signing up & creating a new project on [Firebase](https://firebase.google.com/) and [Stripe website](https://stripe.com/).
+
+Navigate to the project settings gear icon > project settings and scroll down to the config code. Copy the object in the code and replace the variable in your cloned code.
+
+## **Running the Project**
+
+```bash
+netlify dev
+```
+
+Open [http://localhost:8888](http://localhost:8888) in your browser to view the project.
+
+## 🚀 <a name="usage"> How It Works</a>
+1. **Homepage**: Browse featured collections and explore jewelry items.
+2. **Catalog**: View products by category (bracelets, rings, earrings, etc.).
+3. **Add to Cart**: Add items to your cart with a simple click.
+4. **Wishlist**: Save items for later, remove, or move them to the cart.
+5. **Cart**: Review your cart, adjust quantities, remove products, and proceed to checkout.
+6. **Checkout**: Review your order summary and complete secure payment via Stripe.
+7. **User Account**: Sign up or log in to manage your cart and wishlist.
+
+## 📸 <a name="screenshots">Screenshots</a>
+
+Here are some sample screenshots of the Bling It On app:
+<div align="center" >
+<img src="https://i.ibb.co/hFxZBGK/Category-Page.png" width="30%" alt="Category-Page" border="0">
+<img src="https://i.ibb.co/5GZ5jdR/Wishlist-Page.png" width="30%" alt="Wishlist-Page" border="0">
+<img src="https://i.ibb.co/K7KnB59/Checkout-Page.png" width="30%" alt="Checkout-Page" border="0">
+<img src="https://i.ibb.co/p18bLVV/Sign-in.png" width="34%" alt="Sign-in" border="0">
+<img src="https://i.ibb.co/JxQGWKw/mobile-category-page.jpg" width="10%" alt="mobile-category-page" border="0">
+<img src="https://i.ibb.co/QYTx2NV/mobile-wishlist.jpg" width="12%" alt="mobile-wishlist" border="0">
+<img src="https://i.ibb.co/MsLC4Hm/mobile-checkout.jpg" width="13%" alt="mobile-checkout" border="0">
+<img src="https://i.ibb.co/djwL58f/Cart.png" width="23%" alt="Cart" border="0">
+</div>
+
+## 🙏 <a name="acknowledgements">Acknowledgements</a>
+- **Images**: Product images are provided by [**The Glorious Studio**](https://www.pexels.com/@the-glorious-studio-3584518/) and sourced from [**Pexels**](https://www.pexels.com/).   
+  
+- **Learning Resources**: Special thanks to Andrei Neagoie and Yihua Zhang, creators of the [**Complete React Developer (w/ Redux, Hooks, GraphQL)**](https://www.udemy.com/course/complete-react-developer-zero-to-mastery/) course on [**Udemy**](https://www.udemy.com/), for their invaluable guidance in learning React.
