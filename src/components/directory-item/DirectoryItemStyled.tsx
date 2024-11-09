@@ -6,7 +6,7 @@ export const BackgroundImage = styled.div<{imageURL: string}>`
   height: 100%;
   background-image: ${({ imageURL }) => `url(${imageURL})`};
   background-size: cover;
-  background-position: center;
+  background-position: 50% 60%;
 `;
 
 export const DirectoryBody = styled.div`
@@ -38,8 +38,7 @@ export const DirectoryBody = styled.div`
 `;
 
 export const DirectoryItemContainer = styled.div`
-  /* min-width: max-content(18rem, 100%); */
-  max-height: 300px;
+  min-width: max-content(18rem, 100%);
   flex: 1 1 33%;
   border-radius: 0.25rem;
   overflow: hidden;
