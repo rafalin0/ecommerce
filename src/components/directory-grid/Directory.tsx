@@ -1,9 +1,14 @@
-import React, { forwardRef } from "react";
+import React, { forwardRef, Ref } from "react";
 import DirectoryItem from "../directory-item/DirectoryItem.tsx";
 import { DirectoryContainer } from "./DirectoryStyled.tsx";
 import { categories } from "../../constants/constants.ts";
 
-const Directory = forwardRef<HTMLDivElement, {}>((props, ref) => {
+interface DirectoryProps {
+  // Define props here if needed
+}
+
+const Directory = forwardRef(
+  (props: DirectoryProps, ref: Ref<HTMLDivElement>) => {
   return (
     <DirectoryContainer ref={ref}>
       {categories.map(({ title, id, imageurl }) => (
