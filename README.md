@@ -1,9 +1,7 @@
-|
-
 <div align="center" >
   <br />
     <a href="https://bling-it-on.netlify.app/s" >
-    <img src="https://i.ibb.co/gD10rPb/Homepage.png" alt="Homepage" width="35%" border="0">
+    <img src="https://i.ibb.co/gD10rPb/Homepage.png" alt="Homepage" width="45%" border="0">
     </a>
   <div>
     <img src="https://img.shields.io/badge/-React_JS-black?style=for-the-badge&logoColor=white&logo=react&color=61DAFB" alt="react.js" />
@@ -28,7 +26,7 @@
 2. 📋 [Features](#features)
 3. ⚙️ [Tech Stack](#tech-stack)
 4. 🤸 [Quick Start](#quick-start)
-5. 🚀 [Usage / How It Works](#usage)
+5. 🚀 [How It Works](#usage)
 6. 📸 [Screenshots](#screenshots)
 7. 🙏[Acknowledgments](#awknowlegements) 
 
@@ -144,13 +142,13 @@ netlify dev
 Open [http://localhost:8888](http://localhost:8888) in your browser to view the project.
 
 ## 🚀 <a name="usage"> How It Works</a>
-1. **Homepage**: Browse featured collections and explore jewelry items.
-2. **Catalog**: View products by category (bracelets, rings, earrings, etc.).
-3. **Add to Cart**: Add items to your cart with a simple click.
-4. **Wishlist**: Save items for later, remove, or move them to the cart.
-5. **Cart**: Review your cart, adjust quantities, remove products, and proceed to checkout.
-6. **Checkout**: Review your order summary and complete secure payment via Stripe.
-7. **User Account**: Sign up or log in to manage your cart and wishlist.
+- **Homepage**: Browse featured collections and explore jewelry items.
+- **Catalog**: View products by category (bracelets, rings, earrings, etc.).
+- **Add to Cart**: Add items to your cart with a simple click.
+- **Wishlist**: Save items for later, remove, or move them to the cart.
+- **Cart**: Review your cart, adjust quantities, remove products, and proceed to checkout.
+- **Checkout**: Review your order summary and complete secure payment via Stripe.
+- **User Account**: Sign up or log in to manage your cart and wishlist.
 
 ## 📸 <a name="screenshots">Screenshots</a>
 
@@ -158,7 +156,7 @@ Here are some sample screenshots of the Bling It On app:
 <div align="center" >
 <img src="https://i.ibb.co/hFxZBGK/Category-Page.png" width="30%" alt="Category-Page" border="0">
 <img src="https://i.ibb.co/5GZ5jdR/Wishlist-Page.png" width="30%" alt="Wishlist-Page" border="0">
-<img src="https://i.ibb.co/K7KnB59/Checkout-Page.png" width="30%" alt="Checkout-Page" border="0">
+<img src="https://i.ibb.co/K7KnB59/Checkout-Page.png" width="32%" alt="Checkout-Page" border="0">
 <img src="https://i.ibb.co/p18bLVV/Sign-in.png" width="34%" alt="Sign-in" border="0">
 <img src="https://i.ibb.co/JxQGWKw/mobile-category-page.jpg" width="10%" alt="mobile-category-page" border="0">
 <img src="https://i.ibb.co/QYTx2NV/mobile-wishlist.jpg" width="12%" alt="mobile-wishlist" border="0">
